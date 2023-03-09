@@ -21,7 +21,7 @@
 		    ///Mise en place fonction
 			///gestion erreur
 		    /// Envoi de la réponse au Client
-		    deliver_response(200, "", NULL);
+		    deliver_response(200, "", $matchingData);
 	    break;
     	/// Cas de la méthode PATCH
 	    case "PATCH" :
@@ -29,7 +29,7 @@
 		    ///Mise en place fonction
 			///gestion erreur
 		    /// Envoi de la réponse au Client
-		    deliver_response(200, "", NULL);
+		    deliver_response(200, "", $matchingData);
 	    break;
     	/// Cas de la méthode DELETE
 	    case "DELETE" :
@@ -37,7 +37,7 @@
 		    ///Mise en place fonction
 			///gestion erreur
 		    /// Envoi de la réponse au Client
-		    deliver_response(200, "", NULL);
+		    deliver_response(200, "", $matchingData);
 	    break;
 		default:
 			/// Récupération des critères de recherche envoyés par le Client
