@@ -1,6 +1,6 @@
 <?php
 	/// Librairies éventuelles (pour la connexion à la BDD, etc.)
-    require_once('functionSERVER.php');
+    require_once('../Fonction/functionSERVER.php');
     /// Paramétrage de l'entête HTTP (pour la réponse au Client)
     header("Content-Type:application/json");
     /// Identification du type de méthode HTTP envoyée par le client
