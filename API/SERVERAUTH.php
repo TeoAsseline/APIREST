@@ -1,4 +1,7 @@
 <?php
+//----------------------------------------------------------------------//
+//**********************************************************************//
+//----------------------------------------------------------------------//
 	/// Librairies éventuelles (pour la connexion à la BDD, etc.)
 	require_once("../Fonction/jwt_utils.php");
     require_once("../DAO/fonctionUser.php");
@@ -16,10 +19,9 @@
 			$postedData = json_decode($postedData, true);
 			if(ifMDPUser($postedData["login"],$postedData["mdp"])==TRUE){
 				$user=$postedData["login"];
-				$mdp=getMdp($user);
 				$role=getRole($user);
 				$headers=array('alg'=>'HS256','typ'=>'JWT');
-				$payload=array('login'=>$user,'mdp'=>$mdp,'role'=>$role,'exp'=>(time()+3600));
+				$payload=array('login'=>$user,'role'=>$role,'exp'=>(time()+3600));
 				$jwt = generate_jwt($headers, $payload, $secret = 'apiArticleTeoArthurREST');
                 /// Envoi de la réponse au Client
 		        deliver_response(200,"Connexion Réussi",$jwt);
@@ -48,4 +50,7 @@
 		$json_response = json_encode($response);
 		echo $json_response;
 	}
+//----------------------------------------------------------------------//
+//**********************************************************************//
+//----------------------------------------------------------------------//
 ?>

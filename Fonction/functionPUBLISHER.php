@@ -3,20 +3,20 @@
 //**********************************************************************//
 //----------------------------------------------------------------------//
 //-------------------------------------------------------//
-//////////////////  ROLE non Authentifié       ////////////
+//////////////////  ROLE Publisher             ////////////
 //-------------------------------------------------------//
-//-------------------------------------------------------//
-////////////////// Cas des méthodes GET  //////////////////
-//-------------------------------------------------------//
-function GETMethod($id=null){
+//-------------------------------------------------------------//
+////////////////// Cas des méthodes GET TOKEN  //////////////////
+//-------------------------------------------------------------//
+function GETMethodTOKEN($id=null,$token){
     $lien='http://localhost/R401/APIREST/SERVERAPI.php';
     if(is_null($id)){
-        $result = file_get_contents($lien,false
-        ,stream_context_create(array('http' => array('method' => 'GET'))) 
+        $result = file_get_contents($lien,false,
+        stream_context_create(array('http' => array('method' => 'GET','header'=>'Authorization: Bearer '.$token))) 
         );
     } else {
-        $result = file_get_contents($lien."?id=".$id,false
-        ,stream_context_create(array('http' => array('method' => 'GET'))) 
+        $result = file_get_contents($lien."?id=".$id,false,
+        stream_context_create(array('http' => array('method' => 'GET','header'=>'Authorization: Bearer '.$token))) 
         );
     }
     $result = json_decode($result,true);
@@ -25,9 +25,4 @@ function GETMethod($id=null){
 //----------------------------------------------------------------------//
 //**********************************************************************//
 //----------------------------------------------------------------------//
-//-------------------//
-// POUR VERIFIER LES ERREURS AVEC JSON
-//echo json_last_error()." // ".json_last_error_msg();
-//var_dump($result);
-//-------------------//
 ?>
