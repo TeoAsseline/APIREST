@@ -6,11 +6,11 @@ require_once("BDD.php");
 //----------------------------------------------------------------------------//
 /// Vérifier si le mdp correspond au USER envoyé qui doit aussi existé /////////
 //----------------------------------------------------------------------------//
-function ifMDPUser($user,$mdp){
+function ifMDPUser($pseudo,$mdp){
     $linkpdo=ConnexionBDD();
-    if (password_verify($mdp,getMdp($user))) {
+    if (password_verify($mdp,getMdp($pseudo))) {
         $req = $linkpdo->prepare("SELECT pseudo,mdp FROM users where pseudo=:pseudo and mdp=:mdp");
-        $req->execute(array(":pseudo"=>$user,":mdp"=>$mdp));
+        $req->execute(array(":pseudo"=>$pseudo,":mdp"=>$mdp));
         if($req->rowCount() > 0){
             return TRUE;
         } else {
@@ -23,10 +23,10 @@ function ifMDPUser($user,$mdp){
 //---------------------------------------------//
 /// Retourner le rôle de l'utilisateur /////////
 //--------------------------------------------//
-function getRole($user){
+function getRole($pseudo){
     $linkpdo=ConnexionBDD();
     $req = $linkpdo->prepare("SELECT role FROM users where pseudo=:pseudo");
-    $req->execute(array(":pseudo"=>$user));
+    $req->execute(array(":pseudo"=>$pseudo));
     if($req->rowCount() > 0){
         $data = $req->fetchAll(PDO::FETCH_ASSOC);
         return $data[0]["role"];
@@ -34,13 +34,27 @@ function getRole($user){
         return "ERROR";
     }
 }
+//-----------------------------------------------//
+/// Retourner l'id du user par son Pseudo /////////
+//-----------------------------------------------//
+function getIdByPseudo($pseudo){
+    $linkpdo=ConnexionBDD();
+    $req = $linkpdo->prepare("SELECT id_user FROM users where pseudo=:pseudo");
+    $req->execute(array(":pseudo"=>$pseudo));
+    if($req->rowCount() > 0){
+        $data = $req->fetchAll(PDO::FETCH_ASSOC);
+        return $data[0]["id_user"];
+    } else {
+        return "ERROR";
+    }
+}
 //---------------------------------------------//
 /// Retourner le mdp  de l'utilisateur /////////
 //--------------------------------------------//
-function getMdp($user){
+function getMdp($pseudo){
     $linkpdo=ConnexionBDD();
     $req = $linkpdo->prepare("SELECT mdp FROM users where pseudo=:pseudo");
-    $req->execute(array(":pseudo"=>$user));
+    $req->execute(array(":pseudo"=>$pseudo));
     if($req->rowCount() > 0){
         $data = $req->fetchAll(PDO::FETCH_ASSOC);
         return $data[0]["mdp"];
@@ -51,10 +65,10 @@ function getMdp($user){
 //---------------------------------------------------//
 /// Retourner si user existe dans l'appliction ////////
 //---------------------------------------------------//
-function ifUser($user){
+function ifUser($pseudo){
     $linkpdo=ConnexionBDD();
     $req = $linkpdo->prepare("SELECT pseudo FROM users where pseudo=:pseudo");
-    $req->execute(array(":pseudo"=>$user));
+    $req->execute(array(":pseudo"=>$pseudo));
     if($req->rowCount() > 0){
         return TRUE;
     } else {
