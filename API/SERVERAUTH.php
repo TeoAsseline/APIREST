@@ -17,7 +17,7 @@
 		    $postedData = file_get_contents('php://input');
 		    /// Traitement
 			$postedData = json_decode($postedData, true);
-			if(ifMDPUser($postedData["login"],$postedData["mdp"])==TRUE){
+			if(ifMDPUser($postedData["login"],$postedData["mdp"])==1){
 				$user=$postedData["login"];
 				$role=getRole($user);
 				$headers=array('alg'=>'HS256','typ'=>'JWT');

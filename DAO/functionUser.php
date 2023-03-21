@@ -8,16 +8,17 @@ require_once("BDD.php");
 //----------------------------------------------------------------------------//
 function ifMDPUser($pseudo,$mdp){
     $linkpdo=ConnexionBDD();
-    if (password_verify($mdp,getMdp($pseudo))) {
-        $req = $linkpdo->prepare("SELECT pseudo,mdp FROM users where pseudo=:pseudo and mdp=:mdp");
-        $req->execute(array(":pseudo"=>$pseudo,":mdp"=>$mdp));
+    $hash=getMdp($pseudo);
+    if (password_verify($mdp,$hash)==true) {
+        $req = $linkpdo->prepare("SELECT * FROM users where pseudo=:pseudo and mdp=:mdp");
+        $req->execute(array(":pseudo"=>$pseudo,":mdp"=>$hash));
         if($req->rowCount() > 0){
-            return TRUE;
+            return 1;
         } else {
-            return FALSE;
+            return 0;
         }
     } else {
-        return FALSE;
+        return 0;
     }
 }
 //---------------------------------------------//
@@ -70,33 +71,26 @@ function ifUser($pseudo){
     $req = $linkpdo->prepare("SELECT pseudo FROM users where pseudo=:pseudo");
     $req->execute(array(":pseudo"=>$pseudo));
     if($req->rowCount() > 0){
-        return TRUE;
+        return 1;
     } else {
-        return FALSE;
+        return 0;
     }
-}
-//---------------------------------------------//
-/// hash le mdp                        /////////
-//--------------------------------------------//
-function Hashmdp($mdp){
-    return password_hash($mdp,PASSWORD_DEFAULT,["cost"=>12]);
 }
 //---------------------------------------------//
 /// Insérer un user dans la bdd        /////////
 //--------------------------------------------//
 function insertUser($user,$mdp,$role){
     $linkpdo=ConnexionBDD();
-    if (ifUser($user)==TRUE)
-    {
-        return FALSE;
+    if (ifUser($user)==1){
+        return 0;
     } else {
-    $mdp=Hashmdp($mdp);
-    $req = $linkpdo->prepare("INSERT INTO users(pseudo,mdp,role) VALUES (:pseudo,:mdp,:role)");
-    if($req->execute(array(":pseudo"=>$user,":mdp"=>$mdp,":role"=>$role))){
-        return TRUE;
-    } else {
-        return FALSE;
-    }
+        $hash=password_hash($mdp,PASSWORD_DEFAULT,["cost"=>12]);
+        $req = $linkpdo->prepare("INSERT INTO users(pseudo,mdp,role) VALUES (:pseudo,:mdp,:role)");
+        if($req->execute(array(":pseudo"=>$user,":mdp"=>$hash,":role"=>$role))){
+            return 1;
+        } else {
+            return 0;
+        }
     }
 }
 //----------------------------------------------------------------------//
