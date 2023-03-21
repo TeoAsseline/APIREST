@@ -4,6 +4,8 @@
 //----------------------------------------------------------------------//
 	/// Librairies éventuelles (pour la connexion à la BDD, etc.)
     require_once('../Fonction/functionSERVER.php');
+	require_once('../Fonction/functionUser.php');
+	require_once('../Fonction/jwt_utils.php');
     /// Paramétrage de l'entête HTTP (pour la réponse au Client)
     header("Content-Type:application/json");
     /// Identification du type de méthode HTTP envoyée par le client
@@ -22,9 +24,37 @@
 	    case "POST" :
 		    /// Récupération des données envoyées par le Client
 		    ///Mise en place fonction
-			///gestion erreur
-		    /// Envoi de la réponse au Client
-		    deliver_response(200, "", $matchingData);
+			$bearer_token='';
+			$matchingData=0;
+			$bearer_token=get_bearer_token();
+			if(is_jwt_valid($bearer_token,$secret = 'apiArticleTeoArthurREST') && isset($_GET['pseudo'])){
+				$role=getRoleToken($bearer_token);
+				$pseudo=$_GET['pseudo'];
+				if($role==2){
+					if(isset($_GET['id_art']) && isset($_GET['like'])){
+						$id_art=$_GET['id_art'];
+						$like=$_GET['like'];
+						$matchingData=LikeArticlePublisher($pseudo,$id_art,$like);
+						/// Envoi de la réponse au Client
+						deliver_response(200, "La requête de like/dislike a bien été effectué", $matchingData);
+					} else if(isset($_GET['contenu']) && isset($_GET['titre'])){
+						$contenu=$_GET['contenu'];
+						$titre=$_GET['titre'];
+						$matchingData=insertArticlePublisher($pseudo,$contenu,$titre);
+						/// Envoi de la réponse au Client
+						deliver_response(200, "La requête d'insertion d'article a bien été effectué", $matchingData);
+					} else {
+						/// Envoi de la réponse au Client
+						deliver_response(200, "ERREUR, aucune insertion ou like", $matchingData);
+					}
+				} else {
+					/// Envoi de la réponse au Client
+					deliver_response(200, "Vous n\'avez pas le rôle PUBLISHER", $matchingData);
+				}
+			} else {
+				/// Envoi de la réponse au Client
+				deliver_response(200, "Votre Token n\'est pas valide", $matchingData);
+			}
 	    break;
     	/// Cas de la méthode PATCH
 	    case "PATCH" :

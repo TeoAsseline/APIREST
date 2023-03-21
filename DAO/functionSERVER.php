@@ -53,9 +53,9 @@ function getArticleNAuth($id=null){
 //-----------------------------------------------------------------------------//
 function getArticleAdmin($id=null){
     $result = getArticlePublisher($id);
-    foreach($result as $art){
-        $art['ListLike']=getListLikeDislike(1,$art["id_art"]);
-        $art['ListDislike']=getListLikeDislike(0,$art["id_art"]);
+    for($i = 0; $i < count($result); $i++){
+        $result[$i]['ListLike']=getListLikeDislike(1,$result[$i]["id_art"]);
+        $result[$i]['ListDislike']=getListLikeDislike(0,$result[$i]["id_art"]);
     }
     return $result;
 }
@@ -108,9 +108,9 @@ function getMyArticlePublisher($pseudo){
     $id_pseudo=getIdByPseudo($pseudo);
     $sql="SELECT id_art,date_publication,contenu FROM articles WHERE auteur=$id_pseudo";
     $result= ReqSelect($sql);    
-    foreach($result as $art){
-        $art['nbLike']=getLikeDislike(1,$art["id_art"]);
-        $art['nbDislike']=getLikeDislike(0,$art["id_art"]);
+    for($i = 0; $i < count($result); $i++){
+        $result[$i]['nbLike']=getLikeDislike(1,$result[$i]["id_art"]);
+        $result[$i]['nbDislike']=getLikeDislike(0,$result[$i]["id_art"]);
     }
     return $result;
 }
@@ -131,9 +131,9 @@ function ifArticleIsAuteur($id_pseudo,$id_art){
 //-------------------------------------------------------------------------------------------------------//
 function getArticlePublisher($id=null){
     $result = getArticleNAuth($id);   
-    foreach($result as $art){
-        $art['nbLike']=getLikeDislike(1,$art["id_art"]);
-        $art['nbDislike']=getLikeDislike(0,$art["id_art"]);
+    for($i = 0; $i < count($result); $i++){
+        $result[$i]['nbLike']=getLikeDislike(1,$result[$i]["id_art"]);
+        $result[$i]['nbDislike']=getLikeDislike(0,$result[$i]["id_art"]);
     }
     return $result;
 }
