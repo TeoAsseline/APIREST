@@ -3,8 +3,8 @@
 //**********************************************************************//
 //----------------------------------------------------------------------//
 	/// Librairies éventuelles (pour la connexion à la BDD, etc.)
-    require_once('../Fonction/functionSERVER.php');
-	require_once('../Fonction/functionUser.php');
+    require_once('../DAO/functionSERVER.php');
+	require_once('../DAO/functionUser.php');
 	require_once('../Fonction/jwt_utils.php');
     /// Paramétrage de l'entête HTTP (pour la réponse au Client)
     header("Content-Type:application/json");
@@ -26,20 +26,23 @@
 		    ///Mise en place fonction
 			$bearer_token='';
 			$matchingData=0;
+		    $postedData = file_get_contents('php://input');
+			$postedData = json_decode($postedData, true);
 			$bearer_token=get_bearer_token();
-			if(is_jwt_valid($bearer_token,$secret = 'apiArticleTeoArthurREST') && isset($_GET['pseudo'])){
+		    /// Traitement
+			if(is_jwt_valid($bearer_token,$secret = 'apiArticleTeoArthurREST') && isset($postedData['pseudo'])){
 				$role=getRoleToken($bearer_token);
-				$pseudo=$_GET['pseudo'];
+				$pseudo=$postedData['pseudo'];
 				if($role==2){
-					if(isset($_GET['id_art']) && isset($_GET['like'])){
-						$id_art=$_GET['id_art'];
-						$like=$_GET['like'];
+					if(isset($postedData['id_art']) && isset($postedData['like'])){
+						$id_art=$postedData['id_art'];
+						$like=$postedData['like'];
 						$matchingData=LikeArticlePublisher($pseudo,$id_art,$like);
 						/// Envoi de la réponse au Client
 						deliver_response(200, "La requête de like/dislike a bien été effectué", $matchingData);
-					} else if(isset($_GET['contenu']) && isset($_GET['titre'])){
-						$contenu=$_GET['contenu'];
-						$titre=$_GET['titre'];
+					} else if(isset($postedData['contenu']) && isset($postedData['titre'])){
+						$contenu=$postedData['contenu'];
+						$titre=$postedData['titre'];
 						$matchingData=insertArticlePublisher($pseudo,$contenu,$titre);
 						/// Envoi de la réponse au Client
 						deliver_response(200, "La requête d'insertion d'article a bien été effectué", $matchingData);

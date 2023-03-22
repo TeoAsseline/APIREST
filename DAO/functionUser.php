@@ -84,7 +84,7 @@ function insertUser($user,$mdp,$role){
     if (ifUser($user)==1){
         return 0;
     } else {
-        $hash=password_hash($mdp,PASSWORD_DEFAULT,["cost"=>12]);
+        $hash=password_hash($mdp,PASSWORD_BCRYPT,["cost"=>12]);
         $req = $linkpdo->prepare("INSERT INTO users(pseudo,mdp,role) VALUES (:pseudo,:mdp,:role)");
         if($req->execute(array(":pseudo"=>$user,":mdp"=>$hash,":role"=>$role))){
             return 1;
@@ -99,6 +99,7 @@ function insertUser($user,$mdp,$role){
 function getRoleToken($jwt){
     $tokenParts = explode('.', $jwt);
 	$payload = base64_decode($tokenParts[1]);
+    $payload = json_decode($payload, true);
 	$role=$payload["role"];
     return $role;
 }

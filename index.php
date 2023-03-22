@@ -11,28 +11,36 @@ echo insertUser("Nicolas","jadoreleschats","2");
 echo insertUser("Elena","jadoreleschevaux","2");
 echo insertUser("Fantin","jadorelesjeux","2");
 echo "</br>-----------------------</br>";
-if(password_verify("jadoreleschats",getMdp("Nicolas"))==false){
-    echo "pas le meme";
-} else {
-    echo "le meme";
-}
+$data = array("login"=>"Nicolas","mdp" =>"jadoreleschats");
+$data_string = json_encode($data);
+/// Envoi de la requête
+$token=file_get_contents(
+    'http://localhost/R401/APIREST/API/SERVERAUTH.php',
+    false,
+    stream_context_create(array(
+    'http' => array('method' => 'POST',
+    'content' => $data_string,
+    'header' => array('Content-Type: application/json'."\r\n"
+    .'Content-Length: '.strlen($data_string)."\r\n"))))
+);
+$reponse = json_decode($token,true);
+$token = $reponse["data"];
+echo $token;
 echo "</br>-----------------------</br>";
-echo ifMDPUser("slt","bon");
-echo ifMDPUser("Nicolas","jadoreleschats");
-// $data = array("login"=>"Nicolas","mdp" =>"jadoreleschats");
+// $data = array("pseudo"=>"Nicolas","contenu"=>"Salut c\'est moi","titre"=>"Saucisse");
 // $data_string = json_encode($data);
 // /// Envoi de la requête
-// $token=file_get_contents(
-// 'http://localhost/R401/APIREST/API/SERVERAUTH.php',
-// null,
-// stream_context_create(array(
-// 'http' => array('method' => 'POST',
-// 'content' => $data_string,
-// 'header' => array('Content-Type: application/json'."\r\n"
-// .'Content-Length: '.strlen($data_string)."\r\n"))))
+// $post=file_get_contents(
+//     'http://localhost/R401/APIREST/API/SERVERAPI.php',
+//     false,
+//     stream_context_create(array(
+//     'http' => array('method' => 'POST',
+//     'content' => $data_string,
+//     'header' => array('Authorization: Bearer '.$token,'Content-Type: application/json'."\r\n"
+//     .'Content-Length: '.strlen($data_string)."\r\n"))))
 // );
-// $token = json_decode($token,true);
-// print_r($token);
+// $reponsepost = json_decode($post,true);
+// print_r($reponsepost);
 //----------------------------------------------------------------------//
 //**********************************************************************//
 //----------------------------------------------------------------------//
