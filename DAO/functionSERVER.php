@@ -85,6 +85,8 @@ function getListLikeDislike($like,$id=null){
 ////////  Delete Article      ////////////
 //--------------------------------------//
 function deleteArticleAdmin($id){
+    $sql="DELETE FROM avis WHERE id_article=$id";
+    ReqUpdateDeleteInsert($sql,$id);
     $sql="DELETE FROM articles WHERE id_art=$id";
     return ReqUpdateDeleteInsert($sql,$id);
 }
@@ -150,8 +152,14 @@ function updateArticlePublisher($id,$contenu,$nom,$pseudo){
 //-------------------------------------------------------//
 function deleteArticlePublisher($id,$pseudo){
     $id_pseudo=getIdByPseudo($pseudo);
-    $sql="DELETE FROM articles WHERE id_art=$id AND auteur=$id_pseudo";
-    return ReqUpdateDeleteInsert($sql,$id);
+    if(ifArticleIsAuteur($id_pseudo,$id)==0){
+        return 0;
+    } else {
+        $sql="DELETE FROM avis WHERE id_article=$id";
+        ReqUpdateDeleteInsert($sql,$id);
+        $sql="DELETE FROM articles WHERE id_art=$id AND auteur=$id_pseudo";
+        return ReqUpdateDeleteInsert($sql,$id);
+    }
 }
 //-------------------------------------------------------------------------------//
 //////////////////  Vérifier si un pseudo a deja like un art           ////////////

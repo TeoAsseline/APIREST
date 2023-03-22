@@ -23,11 +23,10 @@
     	/// Cas de la méthode POST
 	    case "POST" :
 		    /// Récupération des données envoyées par le Client
-		    ///Mise en place fonction
 			$bearer_token='';
 			$matchingData=0;
 		    $postedData = file_get_contents('php://input');
-			$postedData = json_decode($postedData, true);
+			$postedData = json_decode($postedData,true);
 			$bearer_token=get_bearer_token();
 		    /// Traitement
 			if(is_jwt_valid($bearer_token,$secret = 'apiArticleTeoArthurREST') && isset($postedData['pseudo'])){
@@ -45,7 +44,7 @@
 						$titre=$postedData['titre'];
 						$matchingData=insertArticlePublisher($pseudo,$contenu,$titre);
 						/// Envoi de la réponse au Client
-						deliver_response(200, "La requête d'insertion d'article a bien été effectué", $matchingData);
+						deliver_response(200, "La requête d\'insertion d\'article a bien été effectué", $matchingData);
 					} else {
 						/// Envoi de la réponse au Client
 						deliver_response(200, "ERREUR, aucune insertion ou like", $matchingData);
@@ -60,20 +59,72 @@
 			}
 	    break;
     	/// Cas de la méthode PATCH
-	    case "PATCH" :
+	    case "PUT" :
 		    /// Récupération des données envoyées par le Client
 		    ///Mise en place fonction
-			///gestion erreur
-		    /// Envoi de la réponse au Client
-		    deliver_response(200, "", $matchingData);
+			$bearer_token='';
+			$matchingData=0;
+		    $postedData = file_get_contents('php://input');
+			$postedData = json_decode($postedData, true);
+			$bearer_token=get_bearer_token();
+		    /// Traitement
+			if(is_jwt_valid($bearer_token,$secret = 'apiArticleTeoArthurREST') && isset($postedData['pseudo']) && isset($postedData['id_art'])){
+				$role=getRoleToken($bearer_token);
+				$pseudo=$postedData['pseudo'];
+				if($role==2){
+					if(isset($postedData['contenu']) && isset($postedData['titre']) ){
+						$contenu=$postedData['contenu'];
+						$titre=$postedData['titre'];
+						$id=$postedData['id_art'];
+						$matchingData=updateArticlePublisher($id,$contenu,$titre,$pseudo);
+						/// Envoi de la réponse au Client
+						deliver_response(200, "La requête de modification d\'article a bien été effectué", $matchingData);
+					} else {
+						/// Envoi de la réponse au Client
+						deliver_response(200, "ERREUR, aucun titre, id article ou contenu", $matchingData);
+					}
+				} else {
+					/// Envoi de la réponse au Client
+					deliver_response(200, "Vous n\'avez pas le rôle PUBLISHER", $matchingData);
+				}
+			} else {
+				/// Envoi de la réponse au Client
+				deliver_response(200, "Votre Token n\'est pas valide", $matchingData);
+			}
 	    break;
     	/// Cas de la méthode DELETE
 	    case "DELETE" :
 		    /// Récupération de l'identifiant de la ressource envoyé par le Client
-		    ///Mise en place fonction
-			///gestion erreur
-		    /// Envoi de la réponse au Client
-		    deliver_response(200, "", $matchingData);
+		    /// Récupération des données envoyées par le Client
+			$bearer_token='';
+			$matchingData=0;
+			$bearer_token=get_bearer_token();
+		    /// Traitement
+			if(is_jwt_valid($bearer_token,$secret = 'apiArticleTeoArthurREST') && isset($_GET['id'])){
+				$role=getRoleToken($bearer_token);
+				$id=$_GET['id'];
+				if($role==1){
+					$matchingData=deleteArticleAdmin($id);
+					/// Envoi de la réponse au Client
+					deliver_response(200,"La requête de suppression d\'article a bien été effectué", $matchingData);
+				} else if($role==2){
+					if(isset($_GET["pseudo"])){
+						$pseudo=$_GET["pseudo"];
+						$matchingData=deleteArticlePublisher($id,$pseudo);
+						/// Envoi de la réponse au Client
+						deliver_response(200,"La requête de suppression de votre article a bien été effectué",$matchingData);
+					} else {
+						/// Envoi de la réponse au Client
+						deliver_response(200, "ERREUR aucune suppression effectué", $matchingData);
+					}
+				} else{
+					/// Envoi de la réponse au Client
+					deliver_response(200, "Vous n\'avez pas le rôle nécéssaire à votre demande", $matchingData);
+				}
+			} else {
+				/// Envoi de la réponse au Client
+				deliver_response(200, "Votre Token n\'est pas valide", $matchingData);
+			}
 	    break;
 		default:
 			/// Récupération des critères de recherche envoyés par le Client
@@ -96,6 +147,7 @@
 		$json_response = json_encode($response);
 		echo $json_response;
 	}
+	
 //----------------------------------------------------------------------//
 //**********************************************************************//
 //----------------------------------------------------------------------//
