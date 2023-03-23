@@ -4,6 +4,7 @@
 //----------------------------------------------------------------------//
 require_once("./DAO/functionUser.php");
 require_once("./DAO/functionSERVER.php");
+require_once("./Fonction/jwt_utils.php");
 echo "</br>-----------------------<br/>";
 echo insertUser("Teo","\$iutinfo","1");
 echo insertUser("Arthur","\$iutinfo","1");
@@ -12,6 +13,7 @@ echo insertUser("Elena","jadoreleschevaux","2");
 echo insertUser("Fantin","jadorelesjeux","2");
 echo "</br>-----------------------</br>";
 $data = array("login"=>"Nicolas","mdp" =>"jadoreleschats");
+//$data = array("login"=>"Teo","mdp" =>"\$iutinfo");
 $data_string = json_encode($data);
 /// Envoi de la requête
 $token=file_get_contents(
@@ -93,6 +95,50 @@ echo "</br>-----------------------</br>";
 //     );
 //     $responsedeletepublisher = json_decode($deletepublisher,true);
 //     print_r($responsedeletepublisher);
+
+//récupérer un article token
+// $id=1;
+// $getOneArticle = file_get_contents('http://localhost/R401/APIREST/API/SERVERAPI.php?id='.$id,
+//         false,
+//         stream_context_create(array('http' => array('method' => 'GET','header' => array('Authorization: Bearer '.$token)))) 
+//         );
+//         $responsegetone = json_decode($getOneArticle,true);
+//         print_r($responsegetone);
+
+//récupérer les articles token
+// $getAllArticle = file_get_contents('http://localhost/R401/APIREST/API/SERVERAPI.php',
+//         false,
+//         stream_context_create(array('http' => array('method' => 'GET','header' => array('Authorization: Bearer '.$token)))) 
+//         );
+//         $responsegetAll = json_decode($getAllArticle,true);
+//         print_r($responsegetAll);
+
+//récupérer un article
+// $pseudo="Nicolas";
+// $getmyArticle = file_get_contents('http://localhost/R401/APIREST/API/SERVERAPI.php?pseudo='.$pseudo,
+//         false,
+//         stream_context_create(array('http' => array('method' => 'GET','header' => array('Authorization: Bearer '.$token)))) 
+//         );
+//         $responsegetmy = json_decode($getmyArticle,true);
+//         print_r($responsegetmy);
+
+//récupérer un article non auth
+// $id=1;
+// $getOneArticle = file_get_contents('http://localhost/R401/APIREST/API/SERVERAPI.php?id='.$id,
+//         false,
+//         stream_context_create(array('http' => array('method' => 'GET'))) 
+//         );
+//         $responsegetone = json_decode($getOneArticle,true);
+//         print_r($responsegetone);
+
+//récupérer les articles non auth
+// $getAllArticle = file_get_contents('http://localhost/R401/APIREST/API/SERVERAPI.php',
+//         false,
+//         stream_context_create(array('http' => array('method' => 'GET'))) 
+//         );
+//         $responsegetAll = json_decode($getAllArticle,true);
+//         print_r($responsegetAll);
+
 //----------------------------------------------------------------------//
 //**********************************************************************//
 //----------------------------------------------------------------------//

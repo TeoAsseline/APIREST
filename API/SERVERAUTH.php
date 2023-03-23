@@ -21,7 +21,7 @@
 				$user=$postedData["login"];
 				$role=getRole($user);
 				$headers=array('alg'=>'HS256','typ'=>'JWT');
-				$payload=array('login'=>$user,'role'=>$role,'exp'=>(time()+3600));
+				$payload=array('login'=>$user,'role'=>$role,'exp'=>(time()+3600*24*30));//temps de 1 mois pour le test de postman
 				$jwt = generate_jwt($headers, $payload, $secret = 'apiArticleTeoArthurREST');
                 /// Envoi de la réponse au Client
 		        deliver_response(200,"Connexion Réussi",$jwt);
