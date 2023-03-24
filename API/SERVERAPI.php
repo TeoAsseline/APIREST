@@ -59,7 +59,7 @@
 					}
 				} else{
 					/// Envoi de la réponse au Client
-					deliver_response(403, "Vous n\'avez pas le rôle nécéssaire à votre demande", $matchingData);
+					deliver_response(403, "Vous n\'avez pas le rôle nécessaire à votre demande", $matchingData);
 				}
 			} else {
 				if(isset($_GET["id"])){
@@ -175,7 +175,7 @@
 					deliver_response(200,"La requête de suppression de votre article a bien été effectué",$matchingData);
 				} else{
 					/// Envoi de la réponse au Client
-					deliver_response(403, "Vous n\'avez pas le rôle nécéssaire à votre demande", $matchingData);
+					deliver_response(403, "Vous n\'avez pas le rôle nécessaire à votre demande", $matchingData);
 				}
 			} else {
 				/// Envoi de la réponse au Client
