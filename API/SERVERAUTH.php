@@ -17,18 +17,24 @@
 		    $postedData = file_get_contents('php://input');
 		    /// Traitement
 			$postedData = json_decode($postedData, true);
-			if(ifMDPUser($postedData["login"],$postedData["mdp"])==1){
-				$user=$postedData["login"];
-				$role=getRole($user);
-				$headers=array('alg'=>'HS256','typ'=>'JWT');
-				$payload=array('login'=>$user,'role'=>$role,'exp'=>(time()+3600*24*30));//temps de 1 mois pour le test de postman
-				$jwt = generate_jwt($headers, $payload, $secret = 'apiArticleTeoArthurREST');
-                /// Envoi de la réponse au Client
-		        deliver_response(200,"Connexion Réussi",$jwt);
+			if(isset($postedData["login"]) && isset($postedData["mdp"])){
+				if(ifMDPUser($postedData["login"],$postedData["mdp"])==1){
+					$user=$postedData["login"];
+					$role=getRole($user);
+					$headers=array('alg'=>'HS256','typ'=>'JWT');
+					$payload=array('login'=>$user,'role'=>$role,'exp'=>(time()+3600*24*30));//temps de 1 mois pour le test de postman
+					$jwt = generate_jwt($headers, $payload, $secret = 'apiArticleTeoArthurREST');
+					/// Envoi de la réponse au Client
+					deliver_response(200,"Connexion Réussi",$jwt);
+				} else {
+					$jwt = "Mauvais login ou mdp";
+					/// Envoi de la réponse au Client
+					deliver_response(400, "Problème Connexion", $jwt);
+				}
 			} else {
-				$jwt = "Mauvais login ou mdp";
-                /// Envoi de la réponse au Client
-		        deliver_response(400, "Problème Connexion", $jwt);
+				$jwt = "Il vous manque le login ou mot de passe";
+				/// Envoi de la réponse au Client
+				deliver_response(400, "Erreur de connexion", $jwt);
 			}
 	    break;
         // Cas par défaut, erreur
