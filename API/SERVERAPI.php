@@ -91,8 +91,8 @@
 						/// Envoi de la réponse au Client
 						deliver_response(200, "La requête de like/dislike a bien été effectué", $matchingData);
 					} else if(isset($postedData['contenu']) && isset($postedData['titre'])){
-						$contenu=$postedData['contenu'];
-						$titre=$postedData['titre'];
+						$contenu=htmlspecialchars($postedData['contenu']);
+						$titre=htmlspecialchars($postedData['titre']);
 						$matchingData=insertArticlePublisher($pseudo,$contenu,$titre);
 						/// Envoi de la réponse au Client
 						deliver_response(200, "La requête d\'insertion d\'article a bien été effectué", $matchingData);
@@ -126,8 +126,8 @@
 				//role Publisher
 				if($role==2){
 					if(isset($postedData['contenu']) && isset($postedData['titre']) ){
-						$contenu=$postedData['contenu'];
-						$titre=$postedData['titre'];
+						$contenu=htmlspecialchars($postedData['contenu']);
+						$titre=htmlspecialchars($postedData['titre']);
 						$id=$postedData['id_art'];
 						$matchingData=updateArticlePublisher($id,$contenu,$titre,$pseudo);
 						/// Envoi de la réponse au Client
