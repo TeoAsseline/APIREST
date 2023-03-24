@@ -26,15 +26,15 @@
                 /// Envoi de la réponse au Client
 		        deliver_response(200,"Connexion Réussi",$jwt);
 			} else {
-				$jwt = "Mauvais Login ou Mdp";
+				$jwt = "Mauvais login ou mdp";
                 /// Envoi de la réponse au Client
-		        deliver_response(200, "Problème Connexion", $jwt);
+		        deliver_response(400, "Problème Connexion", $jwt);
 			}
 	    break;
         // Cas par défaut, erreur
 		default:
 			/// Envoi de la réponse au Client
-			deliver_response(200, "Veuillez vous authentifié et envoyé au serveur les données",NULL);
+			deliver_response(400, "veuillez envoyer une requête POST avec login et mdp (mot de passe)",NULL);
 		break;
 	}
 	
