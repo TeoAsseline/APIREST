@@ -57,9 +57,6 @@
 						/// Envoi de la réponse au Client
 						deliver_response(200, "récupération des articles des publisher", $matchingData);
 					}
-				} else{
-					/// Envoi de la réponse au Client
-					deliver_response(403, "Vous n\'avez pas le rôle nécessaire à votre demande", $matchingData);
 				}
 			} else {
 				if(isset($_GET["id"])){
