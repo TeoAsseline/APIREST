@@ -12,8 +12,8 @@ echo insertUser("Nicolas","jadoreleschats","2");
 echo insertUser("Elena","jadoreleschevaux","2");
 echo insertUser("Fantin","jadorelesjeux","2");
 echo "</br>-----------------------</br>";
-$data = array("login"=>"Nicolas","mdp" =>"jadoreleschats");
-//$data = array("login"=>"Teo","mdp" =>"\$iutinfo");
+//$data = array("login"=>"Nicolas","mdp" =>"jadoreleschats");
+$data = array("login"=>"Teo","mdp" =>"\$iutinfo");
 $data_string = json_encode($data);
 /// Envoi de la requête
 $token=file_get_contents(
@@ -30,7 +30,7 @@ $token = $reponse["data"];
 echo $token;
 echo "</br>-----------------------</br>";
 // ajout de like or dislike
-// $data = array("pseudo"=>"Fantin","id_art"=>1,"like"=>1);
+// $data = array("id_art"=>1,"like"=>1);
 // $data_string = json_encode($data);
 // /// Envoi de la requête
 // $post=file_get_contents(
@@ -46,7 +46,7 @@ echo "</br>-----------------------</br>";
 // print_r($reponsepost);
 
 // ajout d'article
-// $data = array("pseudo"=>"Fantin","contenu"=>"Salut les animaux","titre"=>"Animaux");
+// $data = array("contenu"=>"Le cheval, le cheval c'est trop génial","titre"=>"Cheval");
 // $data_string = json_encode($data);
 // /// Envoi de la requête
 // $post=file_get_contents(

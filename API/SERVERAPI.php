@@ -39,9 +39,14 @@
 				} else if($role==2){
 					if(isset($_GET["pseudo"])){
 						$pseudo=$_GET["pseudo"];
-						$matchingData=getMyArticlePublisher($pseudo);
-						/// Envoi de la réponse au Client
-						deliver_response(200, "récupération de vos articles", $matchingData);
+						if(getPseudoToken($bearer_token)==$pseudo){
+							$matchingData=getMyArticlePublisher($pseudo);
+							/// Envoi de la réponse au Client
+							deliver_response(200, "récupération de vos articles", $matchingData);
+						} else {
+							/// Envoi de la réponse au Client
+							deliver_response(403,"Ce ne sont pas vos articles ", $matchingData);
+						}
 					} else if(isset($_GET["id"])){
 						$id=$_GET["id"];
 						$matchingData=getArticlePublisher($id);
@@ -79,9 +84,9 @@
 				$bearer_token=get_bearer_token();
 			}
 		    /// Traitement token
-			if(is_jwt_valid($bearer_token,$secret = 'apiArticleTeoArthurREST') && isset($postedData['pseudo'])){
+			if(is_jwt_valid($bearer_token,$secret = 'apiArticleTeoArthurREST')){
 				$role=getRoleToken($bearer_token);
-				$pseudo=$postedData['pseudo'];
+				$pseudo=getPseudoToken($bearer_token);
 				//role Publisher
 				if($role==2){
 					if(isset($postedData['id_art']) && isset($postedData['like'])){
@@ -120,12 +125,12 @@
 				$bearer_token=get_bearer_token();
 			}
 		    /// Traitement token
-			if(is_jwt_valid($bearer_token,$secret = 'apiArticleTeoArthurREST') && isset($postedData['pseudo']) && isset($postedData['id_art'])){
+			if(is_jwt_valid($bearer_token,$secret = 'apiArticleTeoArthurREST')){
 				$role=getRoleToken($bearer_token);
-				$pseudo=$postedData['pseudo'];
+				$pseudo=getPseudoToken($bearer_token);
 				//role Publisher
 				if($role==2){
-					if(isset($postedData['contenu']) && isset($postedData['titre']) ){
+					if(isset($postedData['contenu']) && isset($postedData['titre']) && isset($postedData['id_art'])){
 						$contenu=htmlspecialchars($postedData['contenu']);
 						$titre=htmlspecialchars($postedData['titre']);
 						$id=$postedData['id_art'];
@@ -164,22 +169,17 @@
 					deliver_response(200,"La requête de suppression d\'article a bien été effectué", $matchingData);
 					//role Publisher
 				} else if($role==2){
-					if(isset($_GET["pseudo"])){
-						$pseudo=$_GET["pseudo"];
-						$matchingData=deleteArticlePublisher($id,$pseudo);
-						/// Envoi de la réponse au Client
-						deliver_response(200,"La requête de suppression de votre article a bien été effectué",$matchingData);
-					} else {
-						/// Envoi de la réponse au Client
-						deliver_response(400, "ERREUR aucune suppression effectué", $matchingData);
-					}
+					$pseudo=getPseudoToken($bearer_token);
+					$matchingData=deleteArticlePublisher($id,$pseudo);
+					/// Envoi de la réponse au Client
+					deliver_response(200,"La requête de suppression de votre article a bien été effectué",$matchingData);
 				} else{
 					/// Envoi de la réponse au Client
 					deliver_response(403, "Vous n\'avez pas le rôle nécéssaire à votre demande", $matchingData);
 				}
 			} else {
 				/// Envoi de la réponse au Client
-				deliver_response(401, "Votre Token n\'est pas valide", $matchingData);
+				deliver_response(401, "Votre Token n\'est pas valide ou aucun id", $matchingData);
 			}
 	    break;
 		default:
