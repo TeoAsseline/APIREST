@@ -1,0 +1,970 @@
+{
+	"info": {
+		"_postman_id": "1270f1ca-a4d5-4202-9f08-af400d231039",
+		"name": "WeidnerAsseline",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "25745320"
+	},
+	"item": [
+		{
+			"name": "APISERVER",
+			"item": [
+				{
+					"name": "Succes Request",
+					"item": [
+						{
+							"name": "ADDArticle",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJsb2dpbiI6Ik5pY29sYXMiLCJyb2xlIjoyLCJleHAiOjE2ODIyNDE1MTF9.FSh8YtRlV9HrAgKJYip1UAvr6Zx2W955MFF2UHW5vlM",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{ \r\n    \"contenu\":\"je suis un photographe, prendre une photo de la nature est mon quotidien, j'adore ça\",\"titre\":\"Pictures\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost/R401/APIREST/API/SERVERAPI.php",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"path": [
+										"R401",
+										"APIREST",
+										"API",
+										"SERVERAPI.php"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "PUTArticle",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJsb2dpbiI6Ik5pY29sYXMiLCJyb2xlIjoyLCJleHAiOjE2ODIyNDE1MTF9.FSh8YtRlV9HrAgKJYip1UAvr6Zx2W955MFF2UHW5vlM",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{ \r\n    \"contenu\":\"je suis un photographe, prendre une photo de la nature est mon quotidien, c'est mon activité préféré\",\"titre\":\"Pictures\",\"id_art\":1\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost/R401/APIREST/API/SERVERAPI.php",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"path": [
+										"R401",
+										"APIREST",
+										"API",
+										"SERVERAPI.php"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "ADDLikeArticle",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJsb2dpbiI6Ik5pY29sYXMiLCJyb2xlIjoyLCJleHAiOjE2ODIyNDE1MTF9.FSh8YtRlV9HrAgKJYip1UAvr6Zx2W955MFF2UHW5vlM",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{ \r\n    \"id_art\":2,\"like\":1\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost/R401/APIREST/API/SERVERAPI.php",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"path": [
+										"R401",
+										"APIREST",
+										"API",
+										"SERVERAPI.php"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "ADDDislikeArticle",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJsb2dpbiI6Ik5pY29sYXMiLCJyb2xlIjoyLCJleHAiOjE2ODIyNDE1MTF9.FSh8YtRlV9HrAgKJYip1UAvr6Zx2W955MFF2UHW5vlM",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{ \r\n    \"id_art\":3,\"like\":0\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost/R401/APIREST/API/SERVERAPI.php",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"path": [
+										"R401",
+										"APIREST",
+										"API",
+										"SERVERAPI.php"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "GETmyArticlePublisher",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJsb2dpbiI6Ik5pY29sYXMiLCJyb2xlIjoyLCJleHAiOjE2ODIyNDE1MTF9.FSh8YtRlV9HrAgKJYip1UAvr6Zx2W955MFF2UHW5vlM",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost/R401/APIREST/API/SERVERAPI.php?pseudo=Nicolas",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"path": [
+										"R401",
+										"APIREST",
+										"API",
+										"SERVERAPI.php"
+									],
+									"query": [
+										{
+											"key": "pseudo",
+											"value": "Nicolas"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "GETallArticleNauth",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost/R401/APIREST/API/SERVERAPI.php",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"path": [
+										"R401",
+										"APIREST",
+										"API",
+										"SERVERAPI.php"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "GETallArticlePublisher",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJsb2dpbiI6Ik5pY29sYXMiLCJyb2xlIjoyLCJleHAiOjE2ODIyNDE1MTF9.FSh8YtRlV9HrAgKJYip1UAvr6Zx2W955MFF2UHW5vlM",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost/R401/APIREST/API/SERVERAPI.php",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"path": [
+										"R401",
+										"APIREST",
+										"API",
+										"SERVERAPI.php"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "DELETEPublisher",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJsb2dpbiI6Ik5pY29sYXMiLCJyb2xlIjoyLCJleHAiOjE2ODIyNDE1MTF9.FSh8YtRlV9HrAgKJYip1UAvr6Zx2W955MFF2UHW5vlM",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost/R401/APIREST/API/SERVERAPI.php?id=1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"path": [
+										"R401",
+										"APIREST",
+										"API",
+										"SERVERAPI.php"
+									],
+									"query": [
+										{
+											"key": "id",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "GEToneArticlePublisher",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJsb2dpbiI6Ik5pY29sYXMiLCJyb2xlIjoyLCJleHAiOjE2ODIyNDE1MTF9.FSh8YtRlV9HrAgKJYip1UAvr6Zx2W955MFF2UHW5vlM",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost/R401/APIREST/API/SERVERAPI.php?id=1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"path": [
+										"R401",
+										"APIREST",
+										"API",
+										"SERVERAPI.php"
+									],
+									"query": [
+										{
+											"key": "id",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "GEToneArticleNauth",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost/R401/APIREST/API/SERVERAPI.php?id=1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"path": [
+										"R401",
+										"APIREST",
+										"API",
+										"SERVERAPI.php"
+									],
+									"query": [
+										{
+											"key": "id",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "GETallArticleAdmin",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJsb2dpbiI6IlRlbyIsInJvbGUiOjEsImV4cCI6MTY4MjI0MzI4N30.xsYku_3Dyb2Ko-S56dexC0maq539M7guX36a9u37Cc0",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://localhost/R401/APIREST/API/SERVERAPI.php",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"path": [
+										"R401",
+										"APIREST",
+										"API",
+										"SERVERAPI.php"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "DELETEAdmin",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJsb2dpbiI6IlRlbyIsInJvbGUiOjEsImV4cCI6MTY4MjI0MzI4N30.xsYku_3Dyb2Ko-S56dexC0maq539M7guX36a9u37Cc0",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://localhost/R401/APIREST/API/SERVERAPI.php?id=1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"path": [
+										"R401",
+										"APIREST",
+										"API",
+										"SERVERAPI.php"
+									],
+									"query": [
+										{
+											"key": "id",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "GEToneArticleAdmin",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJsb2dpbiI6IlRlbyIsInJvbGUiOjEsImV4cCI6MTY4MjI0MzI4N30.xsYku_3Dyb2Ko-S56dexC0maq539M7guX36a9u37Cc0",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://localhost/R401/APIREST/API/SERVERAPI.php?id=1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"path": [
+										"R401",
+										"APIREST",
+										"API",
+										"SERVERAPI.php"
+									],
+									"query": [
+										{
+											"key": "id",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Error Request",
+					"item": [
+						{
+							"name": "GETmyArticlePublisherNotMyPseudo",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJsb2dpbiI6Ik5pY29sYXMiLCJyb2xlIjoyLCJleHAiOjE2ODIyNDE1MTF9.FSh8YtRlV9HrAgKJYip1UAvr6Zx2W955MFF2UHW5vlM",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost/R401/APIREST/API/SERVERAPI.php?pseudo=Fantin",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"path": [
+										"R401",
+										"APIREST",
+										"API",
+										"SERVERAPI.php"
+									],
+									"query": [
+										{
+											"key": "pseudo",
+											"value": "Fantin"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "ADDAdmin",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJsb2dpbiI6IlRlbyIsInJvbGUiOjEsImV4cCI6MTY4MjI0MzI4N30.xsYku_3Dyb2Ko-S56dexC0maq539M7guX36a9u37Cc0",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{ \r\n    \"contenu\":\"je suis un photographe, prendre une photo de la nature est mon quotidien, j'adore ça\",\"titre\":\"Pictures\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost/R401/APIREST/API/SERVERAPI.php",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"path": [
+										"R401",
+										"APIREST",
+										"API",
+										"SERVERAPI.php"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "PUTAdmin",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJsb2dpbiI6IlRlbyIsInJvbGUiOjEsImV4cCI6MTY4MjI0MzI4N30.xsYku_3Dyb2Ko-S56dexC0maq539M7guX36a9u37Cc0",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{ \r\n    \"contenu\":\"je suis un photographe, prendre une photo de la nature est mon quotidien, j'adore ça\",\"titre\":\"Pictures\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost/R401/APIREST/API/SERVERAPI.php",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"path": [
+										"R401",
+										"APIREST",
+										"API",
+										"SERVERAPI.php"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "ADDNauth",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{ \r\n    \"contenu\":\"je suis un photographe, prendre une photo de la nature est mon quotidien, j'adore ça\",\"titre\":\"Pictures\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost/R401/APIREST/API/SERVERAPI.php",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"path": [
+										"R401",
+										"APIREST",
+										"API",
+										"SERVERAPI.php"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "DELETEPublisherNotArgument",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{ \r\n    \"contenu\":\"je suis un photographe, prendre une photo de la nature est mon quotidien, j'adore ça\",\"titre\":\"Pictures\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost/R401/APIREST/API/SERVERAPI.php?",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"path": [
+										"R401",
+										"APIREST",
+										"API",
+										"SERVERAPI.php"
+									],
+									"query": [
+										{
+											"key": "",
+											"value": null
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "DELETENauth",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost/R401/APIREST/API/SERVERAPI.php?id=1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"path": [
+										"R401",
+										"APIREST",
+										"API",
+										"SERVERAPI.php"
+									],
+									"query": [
+										{
+											"key": "id",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "PUTNauth",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{ \r\n    \"contenu\":\"je suis un photographe, prendre une photo de la nature est mon quotidien, j'adore ça\",\"titre\":\"Pictures\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost/R401/APIREST/API/SERVERAPI.php",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"path": [
+										"R401",
+										"APIREST",
+										"API",
+										"SERVERAPI.php"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "ADDArticle1Argument",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJsb2dpbiI6Ik5pY29sYXMiLCJyb2xlIjoyLCJleHAiOjE2ODIyNDE1MTF9.FSh8YtRlV9HrAgKJYip1UAvr6Zx2W955MFF2UHW5vlM",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{ \r\n    \"contenu\":\"je suis un photographe, prendre une photo de la nature est mon quotidien, j'adore ça\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost/R401/APIREST/API/SERVERAPI.php",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"path": [
+										"R401",
+										"APIREST",
+										"API",
+										"SERVERAPI.php"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "PUTArticle1Argument",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJsb2dpbiI6Ik5pY29sYXMiLCJyb2xlIjoyLCJleHAiOjE2ODIyNDE1MTF9.FSh8YtRlV9HrAgKJYip1UAvr6Zx2W955MFF2UHW5vlM",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{ \r\n    \"contenu\":\"je suis un photographe, prendre une photo de la nature est mon quotidien, j'adore ça\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost/R401/APIREST/API/SERVERAPI.php",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"path": [
+										"R401",
+										"APIREST",
+										"API",
+										"SERVERAPI.php"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "APIAUTHENTIFICATION",
+			"item": [
+				{
+					"name": "Success Request",
+					"item": [
+						{
+							"name": "CONNEXIONAdmin",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"login\":\"Teo\",\"mdp\":\"$iutinfo\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost/R401/APIREST/API/SERVERAUTH.php",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"path": [
+										"R401",
+										"APIREST",
+										"API",
+										"SERVERAUTH.php"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "CONNEXIONPublisher",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"login\":\"Nicolas\",\"mdp\":\"jadoreleschats\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost/R401/APIREST/API/SERVERAUTH.php",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"path": [
+										"R401",
+										"APIREST",
+										"API",
+										"SERVERAUTH.php"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Error Request",
+					"item": [
+						{
+							"name": "CONNEXIONErrorMauvaisLogin",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"login\":\"Fabio\",\"mdp\":\"jadorerire\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost/R401/APIREST/API/SERVERAUTH.php",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"path": [
+										"R401",
+										"APIREST",
+										"API",
+										"SERVERAUTH.php"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "CONNEXIONError1Argument",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"login\":\"Fabio\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost/R401/APIREST/API/SERVERAUTH.php",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"path": [
+										"R401",
+										"APIREST",
+										"API",
+										"SERVERAUTH.php"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "CONNEXIONDefault",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost/R401/APIREST/API/SERVERAUTH.php",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"path": [
+										"R401",
+										"APIREST",
+										"API",
+										"SERVERAUTH.php"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		}
+	]
+}
