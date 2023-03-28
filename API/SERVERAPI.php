@@ -45,6 +45,7 @@
 							deliver_response(200, "récupération de vos articles", $matchingData);
 						} else {
 							/// Envoi de la réponse au Client
+							$matchingData="Mauvais Pseudo en argument";
 							deliver_response(403,"Ce ne sont pas vos articles ", $matchingData);
 						}
 					} else if(isset($_GET["id"])){
@@ -90,24 +91,37 @@
 						$id_art=$postedData['id_art'];
 						$like=$postedData['like'];
 						$matchingData=LikeArticlePublisher($pseudo,$id_art,$like);
+						if($matchingData==1){
+							$matchingData="Succès";
+						} else {
+							$matchingData="C\'est votre article ou mauvais paramètres";
+						}
 						/// Envoi de la réponse au Client
 						deliver_response(200, "La requête de like/dislike a bien été effectué", $matchingData);
 					} else if(isset($postedData['contenu']) && isset($postedData['titre'])){
 						$contenu=htmlspecialchars($postedData['contenu']);
 						$titre=htmlspecialchars($postedData['titre']);
 						$matchingData=insertArticlePublisher($pseudo,$contenu,$titre);
+						if($matchingData==1){
+							$matchingData="Succès";
+						} else {
+							$matchingData="mauvais paramètres";
+						}
 						/// Envoi de la réponse au Client
 						deliver_response(200, "La requête d\'insertion d\'article a bien été effectué", $matchingData);
 					} else {
 						/// Envoi de la réponse au Client
+						$matchingData="Vous n\'avez pas les bons paramètres";
 						deliver_response(400, "ERREUR, aucune insertion ou like", $matchingData);
 					}
 				} else {
 					/// Envoi de la réponse au Client
+					$matchingData="Connectez-vous en publisher pour continuer";
 					deliver_response(403, "Vous n\'avez pas le rôle PUBLISHER", $matchingData);
 				}
 			} else {
 				/// Envoi de la réponse au Client
+				$matchingData="Veuillez-vous connecter";
 				deliver_response(401, "Votre Token n\'est pas valide", $matchingData);
 			}
 	    break;
@@ -132,18 +146,26 @@
 						$titre=htmlspecialchars($postedData['titre']);
 						$id=$postedData['id_art'];
 						$matchingData=updateArticlePublisher($id,$contenu,$titre,$pseudo);
+						if($matchingData==1){
+							$matchingData="Succès";
+						} else {
+							$matchingData="Erreur de modification";
+						}
 						/// Envoi de la réponse au Client
 						deliver_response(200, "La requête de modification d\'article a bien été effectué", $matchingData);
 					} else {
 						/// Envoi de la réponse au Client
+						$matchingData="Vous n\'avez pas les bons paramètres";
 						deliver_response(400, "ERREUR, aucun titre, id article ou contenu", $matchingData);
 					}
 				} else {
 					/// Envoi de la réponse au Client
+					$matchingData="Connectez-vous en publisher pour continuer";
 					deliver_response(403, "Vous n\'avez pas le rôle PUBLISHER", $matchingData);
 				}
 			} else {
 				/// Envoi de la réponse au Client
+				$matchingData="Veuillez-vous connecter";
 				deliver_response(401, "Votre Token n\'est pas valide", $matchingData);
 			}
 	    break;
@@ -162,20 +184,32 @@
 				//role Admin
 				if($role==1){
 					$matchingData=deleteArticleAdmin($id);
+					if($matchingData==1){
+						$matchingData="Succès";
+					} else {
+						$matchingData="Erreur de suppression";
+					}
 					/// Envoi de la réponse au Client
 					deliver_response(200,"La requête de suppression d\'article a bien été effectué", $matchingData);
 					//role Publisher
 				} else if($role==2){
 					$pseudo=getPseudoToken($bearer_token);
 					$matchingData=deleteArticlePublisher($id,$pseudo);
+					if($matchingData==1){
+						$matchingData="Succès";
+					} else {
+						$matchingData="Erreur de suppression";
+					}
 					/// Envoi de la réponse au Client
 					deliver_response(200,"La requête de suppression de votre article a bien été effectué",$matchingData);
 				} else{
 					/// Envoi de la réponse au Client
+					$matchingData="Connectez-vous avec le bon rôle";
 					deliver_response(403, "Vous n\'avez pas le rôle nécessaire à votre demande", $matchingData);
 				}
 			} else {
 				/// Envoi de la réponse au Client
+				$matchingData="Veuillez-vous connecter";
 				deliver_response(401, "Votre Token n\'est pas valide ou aucun id", $matchingData);
 			}
 	    break;
