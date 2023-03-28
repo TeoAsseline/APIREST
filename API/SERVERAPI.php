@@ -29,7 +29,7 @@
 						$id=$_GET["id"];
 						$matchingData=getArticleAdmin($id);
 						/// Envoi de la réponse au Client
-						deliver_response(200, "récupération de l\'article en Admin...", $matchingData);
+						deliver_response(200, "récupération de l'article en Admin...", $matchingData);
 					} else {
 						$matchingData=getArticleAdmin();
 						/// Envoi de la réponse au Client
@@ -52,7 +52,7 @@
 						$id=$_GET["id"];
 						$matchingData=getArticlePublisher($id);
 						/// Envoi de la réponse au Client
-						deliver_response(200, "récupération de l\'article du publisher", $matchingData);
+						deliver_response(200, "récupération de l'article du publisher", $matchingData);
 					} else {
 						$matchingData=getArticlePublisher();
 						/// Envoi de la réponse au Client
@@ -64,7 +64,7 @@
 					$id=$_GET["id"];
 					$matchingData=getArticleNAuth($id);
 					/// Envoi de la réponse au Client
-					deliver_response(200, "récupération de l\'article effectués", $matchingData);
+					deliver_response(200, "récupération de l'article effectués", $matchingData);
 				} else {
 					$matchingData=getArticleNAuth();
 					/// Envoi de la réponse au Client
@@ -108,7 +108,7 @@
 							$matchingData="mauvais paramètres";
 						}
 						/// Envoi de la réponse au Client
-						deliver_response(200, "La requête d\'insertion d\'article a bien été effectué", $matchingData);
+						deliver_response(200, "La requête d'insertion d'article a bien été effectué", $matchingData);
 					} else {
 						/// Envoi de la réponse au Client
 						$matchingData="Vous n\'avez pas les bons paramètres";
@@ -116,13 +116,21 @@
 					}
 				} else {
 					/// Envoi de la réponse au Client
+<<<<<<< HEAD
 					$matchingData="Connectez-vous en publisher pour continuer";
-					deliver_response(403, "Vous n\'avez pas le rôle PUBLISHER", $matchingData);
+					deliver_response(403, "Vous n'avez pas le rôle PUBLISHER", $matchingData);
 				}
 			} else {
 				/// Envoi de la réponse au Client
 				$matchingData="Veuillez-vous connecter";
-				deliver_response(401, "Votre Token n\'est pas valide", $matchingData);
+				deliver_response(401, "Votre Token n'est pas valide", $matchingData);
+=======
+					deliver_response(403, "Vous n'avez pas le rôle PUBLISHER", $matchingData);
+				}
+			} else {
+				/// Envoi de la réponse au Client
+				deliver_response(401, "Votre Token n'est pas valide", $matchingData);
+>>>>>>> c20bbdffb71a8c86852038813296b46744141df4
 			}
 	    break;
     	/// Cas de la méthode PATCH
@@ -152,7 +160,7 @@
 							$matchingData="Erreur de modification";
 						}
 						/// Envoi de la réponse au Client
-						deliver_response(200, "La requête de modification d\'article a bien été effectué", $matchingData);
+						deliver_response(200, "La requête de modification d'article a bien été effectué", $matchingData);
 					} else {
 						/// Envoi de la réponse au Client
 						$matchingData="Vous n\'avez pas les bons paramètres";
@@ -160,13 +168,21 @@
 					}
 				} else {
 					/// Envoi de la réponse au Client
+<<<<<<< HEAD
 					$matchingData="Connectez-vous en publisher pour continuer";
-					deliver_response(403, "Vous n\'avez pas le rôle PUBLISHER", $matchingData);
+					deliver_response(403, "Vous n'avez pas le rôle PUBLISHER", $matchingData);
 				}
 			} else {
 				/// Envoi de la réponse au Client
 				$matchingData="Veuillez-vous connecter";
-				deliver_response(401, "Votre Token n\'est pas valide", $matchingData);
+				deliver_response(401, "Votre Token n'est pas valide", $matchingData);
+=======
+					deliver_response(403, "Vous n'avez pas le rôle PUBLISHER", $matchingData);
+				}
+			} else {
+				/// Envoi de la réponse au Client
+				deliver_response(401, "Votre Token n'est pas valide", $matchingData);
+>>>>>>> c20bbdffb71a8c86852038813296b46744141df4
 			}
 	    break;
     	/// Cas de la méthode DELETE
@@ -190,7 +206,7 @@
 						$matchingData="Erreur de suppression";
 					}
 					/// Envoi de la réponse au Client
-					deliver_response(200,"La requête de suppression d\'article a bien été effectué", $matchingData);
+					deliver_response(200,"La requête de suppression d'article a bien été effectué", $matchingData);
 					//role Publisher
 				} else if($role==2){
 					$pseudo=getPseudoToken($bearer_token);
@@ -204,18 +220,26 @@
 					deliver_response(200,"La requête de suppression de votre article a bien été effectué",$matchingData);
 				} else{
 					/// Envoi de la réponse au Client
+<<<<<<< HEAD
 					$matchingData="Connectez-vous avec le bon rôle";
-					deliver_response(403, "Vous n\'avez pas le rôle nécessaire à votre demande", $matchingData);
+					deliver_response(403, "Vous n'avez pas le rôle nécessaire à votre demande", $matchingData);
 				}
 			} else {
 				/// Envoi de la réponse au Client
 				$matchingData="Veuillez-vous connecter";
-				deliver_response(401, "Votre Token n\'est pas valide ou aucun id", $matchingData);
+				deliver_response(401, "Votre Token n'est pas valide ou aucun id", $matchingData);
+=======
+					deliver_response(403, "Vous n'avez pas le rôle nécessaire à votre demande", $matchingData);
+				}
+			} else {
+				/// Envoi de la réponse au Client
+				deliver_response(401, "Votre Token n'est pas valide ou aucun id", $matchingData);
+>>>>>>> c20bbdffb71a8c86852038813296b46744141df4
 			}
 	    break;
 		default:
 			/// Envoi de la réponse au Client
-			deliver_response(404, "La ressource ciblée n\'existe pas", $matchingData);
+			deliver_response(404, "La ressource ciblée n'existe pas", $matchingData);
 		break;
 	}
 	
