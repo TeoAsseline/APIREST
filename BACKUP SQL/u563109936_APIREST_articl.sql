@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : ven. 24 mars 2023 à 11:21
+-- Généré le : mar. 28 mars 2023 à 09:43
 -- Version du serveur : 10.6.10-MariaDB-cll-lve
 -- Version de PHP : 7.2.34
 
@@ -40,9 +40,18 @@ CREATE TABLE `articles` (
 --
 
 INSERT INTO `articles` (`id_art`, `contenu`, `nom_publication`, `date_publication`, `auteur`) VALUES
-(1, 'je suis un photographe, prendre une photo de la nature est mon quotidien, j&#039;adore ça', 'Pictures', '2023-03-24 10:15:48', 3),
-(2, 'Salut les animaux', 'Animaux', '2023-03-24 10:28:52', 5),
-(3, 'Le cheval, le cheval c&#039;est trop génial', 'Cheval', '2023-03-24 10:29:50', 4);
+(1, 'Jadore les animaux et je men occupe très bien', 'Animaux', '2023-03-28 09:28:04', 3),
+(2, 'Je ne mange plus de viandes', 'Végétarien', '2023-03-28 09:29:49', 3),
+(3, 'Les chats sont les plus beaux animaux du monde', 'Chats', '2023-03-28 09:29:49', 3),
+(4, 'Jai une voiture et je pollue beaucoup', 'Ma voiture', '2023-03-28 09:29:49', 3),
+(5, 'Je suis un fou dans la vie', 'MyLife', '2023-03-28 09:30:43', 5),
+(6, 'Jadore sortir voir mes amis', 'Friends', '2023-03-28 09:33:16', 5),
+(7, 'Manger est ma passion', 'Miam', '2023-03-28 09:33:16', 5),
+(8, 'Je suis un article de moi', 'ArticleMoi', '2023-03-28 09:33:16', 5),
+(9, 'le cheval, le cheval cest trop génial', 'Cheval', '2023-03-28 09:33:57', 4),
+(10, 'Jai une voiture mais je ne peux pas la conduire tous le temps', 'TristeCar', '2023-03-28 09:36:19', 4),
+(11, 'Je vis actuellement dans une maison dont je ne paye pas le loyer', 'House', '2023-03-28 09:36:19', 4),
+(12, 'Mon surnom est elenouille', 'Surnom', '2023-03-28 09:36:19', 4);
 
 -- --------------------------------------------------------
 
@@ -61,8 +70,18 @@ CREATE TABLE `avis` (
 --
 
 INSERT INTO `avis` (`id_auteur`, `id_article`, `ressentiment`) VALUES
-(3, 2, 1),
-(3, 3, 0);
+(3, 6, 0),
+(3, 9, 0),
+(3, 10, 1),
+(3, 12, 0),
+(4, 1, 1),
+(4, 4, 1),
+(4, 5, 0),
+(4, 8, 1),
+(5, 2, 1),
+(5, 9, 1),
+(5, 10, 1),
+(5, 12, 0);
 
 -- --------------------------------------------------------
 
@@ -146,7 +165,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT pour la table `articles`
 --
 ALTER TABLE `articles`
-  MODIFY `id_art` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_art` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT pour la table `role`

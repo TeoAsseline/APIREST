@@ -116,7 +116,6 @@
 					}
 				} else {
 					/// Envoi de la réponse au Client
-<<<<<<< HEAD
 					$matchingData="Connectez-vous en publisher pour continuer";
 					deliver_response(403, "Vous n'avez pas le rôle PUBLISHER", $matchingData);
 				}
@@ -124,13 +123,6 @@
 				/// Envoi de la réponse au Client
 				$matchingData="Veuillez-vous connecter";
 				deliver_response(401, "Votre Token n'est pas valide", $matchingData);
-=======
-					deliver_response(403, "Vous n'avez pas le rôle PUBLISHER", $matchingData);
-				}
-			} else {
-				/// Envoi de la réponse au Client
-				deliver_response(401, "Votre Token n'est pas valide", $matchingData);
->>>>>>> c20bbdffb71a8c86852038813296b46744141df4
 			}
 	    break;
     	/// Cas de la méthode PATCH
@@ -168,7 +160,6 @@
 					}
 				} else {
 					/// Envoi de la réponse au Client
-<<<<<<< HEAD
 					$matchingData="Connectez-vous en publisher pour continuer";
 					deliver_response(403, "Vous n'avez pas le rôle PUBLISHER", $matchingData);
 				}
@@ -176,13 +167,6 @@
 				/// Envoi de la réponse au Client
 				$matchingData="Veuillez-vous connecter";
 				deliver_response(401, "Votre Token n'est pas valide", $matchingData);
-=======
-					deliver_response(403, "Vous n'avez pas le rôle PUBLISHER", $matchingData);
-				}
-			} else {
-				/// Envoi de la réponse au Client
-				deliver_response(401, "Votre Token n'est pas valide", $matchingData);
->>>>>>> c20bbdffb71a8c86852038813296b46744141df4
 			}
 	    break;
     	/// Cas de la méthode DELETE
@@ -220,7 +204,6 @@
 					deliver_response(200,"La requête de suppression de votre article a bien été effectué",$matchingData);
 				} else{
 					/// Envoi de la réponse au Client
-<<<<<<< HEAD
 					$matchingData="Connectez-vous avec le bon rôle";
 					deliver_response(403, "Vous n'avez pas le rôle nécessaire à votre demande", $matchingData);
 				}
@@ -228,13 +211,6 @@
 				/// Envoi de la réponse au Client
 				$matchingData="Veuillez-vous connecter";
 				deliver_response(401, "Votre Token n'est pas valide ou aucun id", $matchingData);
-=======
-					deliver_response(403, "Vous n'avez pas le rôle nécessaire à votre demande", $matchingData);
-				}
-			} else {
-				/// Envoi de la réponse au Client
-				deliver_response(401, "Votre Token n'est pas valide ou aucun id", $matchingData);
->>>>>>> c20bbdffb71a8c86852038813296b46744141df4
 			}
 	    break;
 		default:
@@ -255,7 +231,6 @@
 		$json_response = json_encode($response);
 		echo $json_response;
 	}
-	
 //----------------------------------------------------------------------//
 //**********************************************************************//
 //----------------------------------------------------------------------//

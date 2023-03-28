@@ -60,7 +60,7 @@ function GETArticle($id=null){
 function GETMyArticle($pseudo,$token){
     $lien='http://localhost/R401/APIREST/SERVERAPI.php?pseudo='.$pseudo;
     $result = file_get_contents($lien,false,
-    stream_context_create(array('http' => array('method' => 'GET',,'header' => array('Authorization: Bearer '.$token)))) 
+    stream_context_create(array('http' => array('method' => 'GET','header' => array('Authorization: Bearer '.$token)))) 
     );
     $result = json_decode($result,true);
     return $result;
