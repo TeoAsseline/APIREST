@@ -29,7 +29,7 @@
 						$id=$_GET["id"];
 						$matchingData=getArticleAdmin($id);
 						/// Envoi de la réponse au Client
-						deliver_response(200, "récupération de l\'article en Admin...", $matchingData);
+						deliver_response(200, "récupération de l'article en Admin...", $matchingData);
 					} else {
 						$matchingData=getArticleAdmin();
 						/// Envoi de la réponse au Client
@@ -51,7 +51,7 @@
 						$id=$_GET["id"];
 						$matchingData=getArticlePublisher($id);
 						/// Envoi de la réponse au Client
-						deliver_response(200, "récupération de l\'article du publisher", $matchingData);
+						deliver_response(200, "récupération de l'article du publisher", $matchingData);
 					} else {
 						$matchingData=getArticlePublisher();
 						/// Envoi de la réponse au Client
@@ -63,7 +63,7 @@
 					$id=$_GET["id"];
 					$matchingData=getArticleNAuth($id);
 					/// Envoi de la réponse au Client
-					deliver_response(200, "récupération de l\'article effectués", $matchingData);
+					deliver_response(200, "récupération de l'article effectués", $matchingData);
 				} else {
 					$matchingData=getArticleNAuth();
 					/// Envoi de la réponse au Client
@@ -97,18 +97,18 @@
 						$titre=htmlspecialchars($postedData['titre']);
 						$matchingData=insertArticlePublisher($pseudo,$contenu,$titre);
 						/// Envoi de la réponse au Client
-						deliver_response(200, "La requête d\'insertion d\'article a bien été effectué", $matchingData);
+						deliver_response(200, "La requête d'insertion d'article a bien été effectué", $matchingData);
 					} else {
 						/// Envoi de la réponse au Client
 						deliver_response(400, "ERREUR, aucune insertion ou like", $matchingData);
 					}
 				} else {
 					/// Envoi de la réponse au Client
-					deliver_response(403, "Vous n\'avez pas le rôle PUBLISHER", $matchingData);
+					deliver_response(403, "Vous n'avez pas le rôle PUBLISHER", $matchingData);
 				}
 			} else {
 				/// Envoi de la réponse au Client
-				deliver_response(401, "Votre Token n\'est pas valide", $matchingData);
+				deliver_response(401, "Votre Token n'est pas valide", $matchingData);
 			}
 	    break;
     	/// Cas de la méthode PATCH
@@ -133,18 +133,18 @@
 						$id=$postedData['id_art'];
 						$matchingData=updateArticlePublisher($id,$contenu,$titre,$pseudo);
 						/// Envoi de la réponse au Client
-						deliver_response(200, "La requête de modification d\'article a bien été effectué", $matchingData);
+						deliver_response(200, "La requête de modification d'article a bien été effectué", $matchingData);
 					} else {
 						/// Envoi de la réponse au Client
 						deliver_response(400, "ERREUR, aucun titre, id article ou contenu", $matchingData);
 					}
 				} else {
 					/// Envoi de la réponse au Client
-					deliver_response(403, "Vous n\'avez pas le rôle PUBLISHER", $matchingData);
+					deliver_response(403, "Vous n'avez pas le rôle PUBLISHER", $matchingData);
 				}
 			} else {
 				/// Envoi de la réponse au Client
-				deliver_response(401, "Votre Token n\'est pas valide", $matchingData);
+				deliver_response(401, "Votre Token n'est pas valide", $matchingData);
 			}
 	    break;
     	/// Cas de la méthode DELETE
@@ -163,7 +163,7 @@
 				if($role==1){
 					$matchingData=deleteArticleAdmin($id);
 					/// Envoi de la réponse au Client
-					deliver_response(200,"La requête de suppression d\'article a bien été effectué", $matchingData);
+					deliver_response(200,"La requête de suppression d'article a bien été effectué", $matchingData);
 					//role Publisher
 				} else if($role==2){
 					$pseudo=getPseudoToken($bearer_token);
@@ -172,16 +172,16 @@
 					deliver_response(200,"La requête de suppression de votre article a bien été effectué",$matchingData);
 				} else{
 					/// Envoi de la réponse au Client
-					deliver_response(403, "Vous n\'avez pas le rôle nécessaire à votre demande", $matchingData);
+					deliver_response(403, "Vous n'avez pas le rôle nécessaire à votre demande", $matchingData);
 				}
 			} else {
 				/// Envoi de la réponse au Client
-				deliver_response(401, "Votre Token n\'est pas valide ou aucun id", $matchingData);
+				deliver_response(401, "Votre Token n'est pas valide ou aucun id", $matchingData);
 			}
 	    break;
 		default:
 			/// Envoi de la réponse au Client
-			deliver_response(404, "La ressource ciblée n\'existe pas", $matchingData);
+			deliver_response(404, "La ressource ciblée n'existe pas", $matchingData);
 		break;
 	}
 	
