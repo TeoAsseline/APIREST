@@ -74,7 +74,7 @@ function getLikeDislike($like, $id=null){
 ////////  Récupérer Liste Like/Dislike Article      ////////////
 //------------------------------------------------------------//
 function getListLikeDislike($like,$id=null){
-    $sql="SELECT id_auteur FROM avis WHERE ressentiment=$like";
+    $sql="SELECT pseudo FROM users,avis WHERE id_user=id_auteur and ressentiment=$like";
     if(is_null($id)){
         return ReqSelect($sql); 
     } else {

@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "f0e38d92-e9c3-4cbd-9967-32d6cb84f714",
+		"_postman_id": "d2bc5770-fbe5-4377-8a45-f8d2f0e4481e",
 		"name": "WeidnerAsseline",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "25745395"
@@ -33,14 +33,14 @@
 									}
 								},
 								"url": {
-									"raw": "http://localhost/R401/APIREST/API/SERVERAPI.php",
-									"protocol": "http",
+									"raw": "https://apirestaw.faister.fr/API/SERVERAPI.php",
+									"protocol": "https",
 									"host": [
-										"localhost"
+										"apirestaw",
+										"faister",
+										"fr"
 									],
 									"path": [
-										"R401",
-										"APIREST",
 										"API",
 										"SERVERAPI.php"
 									]
@@ -69,14 +69,14 @@
 									}
 								},
 								"url": {
-									"raw": "http://localhost/R401/APIREST/API/SERVERAPI.php",
-									"protocol": "http",
+									"raw": "https://apirestaw.faister.fr/API/SERVERAPI.php",
+									"protocol": "https",
 									"host": [
-										"localhost"
+										"apirestaw",
+										"faister",
+										"fr"
 									],
 									"path": [
-										"R401",
-										"APIREST",
 										"API",
 										"SERVERAPI.php"
 									]
@@ -105,14 +105,14 @@
 									}
 								},
 								"url": {
-									"raw": "http://localhost/R401/APIREST/API/SERVERAPI.php",
-									"protocol": "http",
+									"raw": "https://apirestaw.faister.fr/API/SERVERAPI.php",
+									"protocol": "https",
 									"host": [
-										"localhost"
+										"apirestaw",
+										"faister",
+										"fr"
 									],
 									"path": [
-										"R401",
-										"APIREST",
 										"API",
 										"SERVERAPI.php"
 									]
@@ -141,14 +141,14 @@
 									}
 								},
 								"url": {
-									"raw": "http://localhost/R401/APIREST/API/SERVERAPI.php",
-									"protocol": "http",
+									"raw": "https://apirestaw.faister.fr/API/SERVERAPI.php",
+									"protocol": "https",
 									"host": [
-										"localhost"
+										"apirestaw",
+										"faister",
+										"fr"
 									],
 									"path": [
-										"R401",
-										"APIREST",
 										"API",
 										"SERVERAPI.php"
 									]
@@ -180,14 +180,14 @@
 									}
 								},
 								"url": {
-									"raw": "http://localhost/R401/APIREST/API/SERVERAPI.php/Nicolas",
-									"protocol": "http",
+									"raw": "https://apirestaw.faister.fr/API/SERVERAPI.php/Nicolas",
+									"protocol": "https",
 									"host": [
-										"localhost"
+										"apirestaw",
+										"faister",
+										"fr"
 									],
 									"path": [
-										"R401",
-										"APIREST",
 										"API",
 										"SERVERAPI.php",
 										"Nicolas"
@@ -202,14 +202,14 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "http://localhost/R401/APIREST/API/SERVERAPI.php",
-									"protocol": "http",
+									"raw": "https://apirestaw.faister.fr/API/SERVERAPI.php",
+									"protocol": "https",
 									"host": [
-										"localhost"
+										"apirestaw",
+										"faister",
+										"fr"
 									],
 									"path": [
-										"R401",
-										"APIREST",
 										"API",
 										"SERVERAPI.php"
 									]
@@ -241,14 +241,14 @@
 									}
 								},
 								"url": {
-									"raw": "http://localhost/R401/APIREST/API/SERVERAPI.php",
-									"protocol": "http",
+									"raw": "https://apirestaw.faister.fr/API/SERVERAPI.php",
+									"protocol": "https",
 									"host": [
-										"localhost"
+										"apirestaw",
+										"faister",
+										"fr"
 									],
 									"path": [
-										"R401",
-										"APIREST",
 										"API",
 										"SERVERAPI.php"
 									]
@@ -277,14 +277,14 @@
 									}
 								},
 								"url": {
-									"raw": "http://localhost/R401/APIREST/API/SERVERAPI.php/1",
-									"protocol": "http",
+									"raw": "https://apirestaw.faister.fr/API/SERVERAPI.php/1",
+									"protocol": "https",
 									"host": [
-										"localhost"
+										"apirestaw",
+										"faister",
+										"fr"
 									],
 									"path": [
-										"R401",
-										"APIREST",
 										"API",
 										"SERVERAPI.php",
 										"1"
@@ -317,14 +317,14 @@
 									}
 								},
 								"url": {
-									"raw": "http://localhost/R401/APIREST/API/SERVERAPI.php/1",
-									"protocol": "http",
+									"raw": "https://apirestaw.faister.fr/API/SERVERAPI.php/1",
+									"protocol": "https",
 									"host": [
-										"localhost"
+										"apirestaw",
+										"faister",
+										"fr"
 									],
 									"path": [
-										"R401",
-										"APIREST",
 										"API",
 										"SERVERAPI.php",
 										"1"
@@ -339,14 +339,14 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "http://localhost/R401/APIREST/API/SERVERAPI.php/1",
-									"protocol": "http",
+									"raw": "https://apirestaw.faister.fr/API/SERVERAPI.php/1",
+									"protocol": "https",
 									"host": [
-										"localhost"
+										"apirestaw",
+										"faister",
+										"fr"
 									],
 									"path": [
-										"R401",
-										"APIREST",
 										"API",
 										"SERVERAPI.php",
 										"1"
@@ -367,14 +367,14 @@
 									}
 								],
 								"url": {
-									"raw": "http://localhost/R401/APIREST/API/SERVERAPI.php",
-									"protocol": "http",
+									"raw": "https://apirestaw.faister.fr/API/SERVERAPI.php",
+									"protocol": "https",
 									"host": [
-										"localhost"
+										"apirestaw",
+										"faister",
+										"fr"
 									],
 									"path": [
-										"R401",
-										"APIREST",
 										"API",
 										"SERVERAPI.php"
 									]
@@ -394,14 +394,14 @@
 									}
 								],
 								"url": {
-									"raw": "http://localhost/R401/APIREST/API/SERVERAPI.php/1",
-									"protocol": "http",
+									"raw": "https://apirestaw.faister.fr/API/SERVERAPI.php/1",
+									"protocol": "https",
 									"host": [
-										"localhost"
+										"apirestaw",
+										"faister",
+										"fr"
 									],
 									"path": [
-										"R401",
-										"APIREST",
 										"API",
 										"SERVERAPI.php",
 										"1"
@@ -422,14 +422,14 @@
 									}
 								],
 								"url": {
-									"raw": "http://localhost/R401/APIREST/API/SERVERAPI.php/1",
-									"protocol": "http",
+									"raw": "https://apirestaw.faister.fr/API/SERVERAPI.php/1",
+									"protocol": "https",
 									"host": [
-										"localhost"
+										"apirestaw",
+										"faister",
+										"fr"
 									],
 									"path": [
-										"R401",
-										"APIREST",
 										"API",
 										"SERVERAPI.php",
 										"1"
@@ -467,14 +467,14 @@
 									}
 								},
 								"url": {
-									"raw": "http://localhost/R401/APIREST/API/SERVERAPI.php/Fantin",
-									"protocol": "http",
+									"raw": "https://apirestaw.faister.fr/API/SERVERAPI.php/Fantin",
+									"protocol": "https",
 									"host": [
-										"localhost"
+										"apirestaw",
+										"faister",
+										"fr"
 									],
 									"path": [
-										"R401",
-										"APIREST",
 										"API",
 										"SERVERAPI.php",
 										"Fantin"
@@ -504,14 +504,14 @@
 									}
 								},
 								"url": {
-									"raw": "http://localhost/R401/APIREST/API/SERVERAPI.php",
-									"protocol": "http",
+									"raw": "https://apirestaw.faister.fr/API/SERVERAPI.php",
+									"protocol": "https",
 									"host": [
-										"localhost"
+										"apirestaw",
+										"faister",
+										"fr"
 									],
 									"path": [
-										"R401",
-										"APIREST",
 										"API",
 										"SERVERAPI.php"
 									]
@@ -540,14 +540,14 @@
 									}
 								},
 								"url": {
-									"raw": "http://localhost/R401/APIREST/API/SERVERAPI.php",
-									"protocol": "http",
+									"raw": "https://apirestaw.faister.fr/API/SERVERAPI.php",
+									"protocol": "https",
 									"host": [
-										"localhost"
+										"apirestaw",
+										"faister",
+										"fr"
 									],
 									"path": [
-										"R401",
-										"APIREST",
 										"API",
 										"SERVERAPI.php"
 									]
@@ -570,14 +570,14 @@
 									}
 								},
 								"url": {
-									"raw": "http://localhost/R401/APIREST/API/SERVERAPI.php",
-									"protocol": "http",
+									"raw": "https://apirestaw.faister.fr/API/SERVERAPI.php",
+									"protocol": "https",
 									"host": [
-										"localhost"
+										"apirestaw",
+										"faister",
+										"fr"
 									],
 									"path": [
-										"R401",
-										"APIREST",
 										"API",
 										"SERVERAPI.php"
 									]
@@ -600,14 +600,14 @@
 									}
 								},
 								"url": {
-									"raw": "http://localhost/R401/APIREST/API/SERVERAPI.php?",
-									"protocol": "http",
+									"raw": "https://apirestaw.faister.fr/API/SERVERAPI.php?",
+									"protocol": "https",
 									"host": [
-										"localhost"
+										"apirestaw",
+										"faister",
+										"fr"
 									],
 									"path": [
-										"R401",
-										"APIREST",
 										"API",
 										"SERVERAPI.php"
 									],
@@ -636,14 +636,14 @@
 									}
 								},
 								"url": {
-									"raw": "http://localhost/R401/APIREST/API/SERVERAPI.php/1",
-									"protocol": "http",
+									"raw": "https://apirestaw.faister.fr/API/SERVERAPI.php/1",
+									"protocol": "https",
 									"host": [
-										"localhost"
+										"apirestaw",
+										"faister",
+										"fr"
 									],
 									"path": [
-										"R401",
-										"APIREST",
 										"API",
 										"SERVERAPI.php",
 										"1"
@@ -667,14 +667,14 @@
 									}
 								},
 								"url": {
-									"raw": "http://localhost/R401/APIREST/API/SERVERAPI.php",
-									"protocol": "http",
+									"raw": "https://apirestaw.faister.fr/API/SERVERAPI.php",
+									"protocol": "https",
 									"host": [
-										"localhost"
+										"apirestaw",
+										"faister",
+										"fr"
 									],
 									"path": [
-										"R401",
-										"APIREST",
 										"API",
 										"SERVERAPI.php"
 									]
@@ -703,14 +703,14 @@
 									}
 								},
 								"url": {
-									"raw": "http://localhost/R401/APIREST/API/SERVERAPI.php",
-									"protocol": "http",
+									"raw": "https://apirestaw.faister.fr/API/SERVERAPI.php",
+									"protocol": "https",
 									"host": [
-										"localhost"
+										"apirestaw",
+										"faister",
+										"fr"
 									],
 									"path": [
-										"R401",
-										"APIREST",
 										"API",
 										"SERVERAPI.php"
 									]
@@ -739,14 +739,14 @@
 									}
 								},
 								"url": {
-									"raw": "http://localhost/R401/APIREST/API/SERVERAPI.php",
-									"protocol": "http",
+									"raw": "https://apirestaw.faister.fr/API/SERVERAPI.php",
+									"protocol": "https",
 									"host": [
-										"localhost"
+										"apirestaw",
+										"faister",
+										"fr"
 									],
 									"path": [
-										"R401",
-										"APIREST",
 										"API",
 										"SERVERAPI.php"
 									]
@@ -779,14 +779,14 @@
 									}
 								},
 								"url": {
-									"raw": "http://localhost/R401/APIREST/API/SERVERAUTH.php",
-									"protocol": "http",
+									"raw": "https://apirestaw.faister.fr/API/SERVERAUTH.php",
+									"protocol": "https",
 									"host": [
-										"localhost"
+										"apirestaw",
+										"faister",
+										"fr"
 									],
 									"path": [
-										"R401",
-										"APIREST",
 										"API",
 										"SERVERAUTH.php"
 									]
@@ -809,14 +809,14 @@
 									}
 								},
 								"url": {
-									"raw": "http://localhost/R401/APIREST/API/SERVERAUTH.php",
-									"protocol": "http",
+									"raw": "https://apirestaw.faister.fr/API/SERVERAUTH.php",
+									"protocol": "https",
 									"host": [
-										"localhost"
+										"apirestaw",
+										"faister",
+										"fr"
 									],
 									"path": [
-										"R401",
-										"APIREST",
 										"API",
 										"SERVERAUTH.php"
 									]
@@ -844,14 +844,14 @@
 									}
 								},
 								"url": {
-									"raw": "http://localhost/R401/APIREST/API/SERVERAUTH.php",
-									"protocol": "http",
+									"raw": "https://apirestaw.faister.fr/API/SERVERAUTH.php",
+									"protocol": "https",
 									"host": [
-										"localhost"
+										"apirestaw",
+										"faister",
+										"fr"
 									],
 									"path": [
-										"R401",
-										"APIREST",
 										"API",
 										"SERVERAUTH.php"
 									]
@@ -874,14 +874,14 @@
 									}
 								},
 								"url": {
-									"raw": "http://localhost/R401/APIREST/API/SERVERAUTH.php",
-									"protocol": "http",
+									"raw": "https://apirestaw.faister.fr/API/SERVERAUTH.php",
+									"protocol": "https",
 									"host": [
-										"localhost"
+										"apirestaw",
+										"faister",
+										"fr"
 									],
 									"path": [
-										"R401",
-										"APIREST",
 										"API",
 										"SERVERAUTH.php"
 									]
@@ -907,14 +907,14 @@
 									}
 								},
 								"url": {
-									"raw": "http://localhost/R401/APIREST/API/SERVERAUTH.php",
-									"protocol": "http",
+									"raw": "https://apirestaw.faister.fr/API/SERVERAUTH.php",
+									"protocol": "https",
 									"host": [
-										"localhost"
+										"apirestaw",
+										"faister",
+										"fr"
 									],
 									"path": [
-										"R401",
-										"APIREST",
 										"API",
 										"SERVERAUTH.php"
 									]

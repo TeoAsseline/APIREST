@@ -112,8 +112,17 @@ if (isset($_POST['connexion'])) {
                 <?php endif; ?>
                 <?php if($token!=""):?>
                 <?php if( getRoleToken($token)==1):?>
-                <td><?php echo$article['nbLike']; ?></td>
-                <td><?php echo$article['nbDislike']; ?></td>
+                <td><?php if($article['ListLike']==0){
+                    echo "Aucun";
+                } else {
+                foreach($article['ListLike'] as $auteur){
+                    echo $auteur["pseudo"]." | ";
+                }} ?></td>
+                <td><?php if($article['ListDislike']==0){
+                    echo "Aucun";
+                } else {foreach($article['ListDislike'] as $auteur){
+                    echo $auteur["pseudo"]." | ";
+                }} ?></td>
                 <?php else: ?>
                 <td></td>
                 <td></td>
