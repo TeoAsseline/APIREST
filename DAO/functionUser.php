@@ -35,6 +35,20 @@ function getRole($pseudo){
         return "ERROR";
     }
 }
+//---------------------------------------------//
+/// Retourner le rôle de l'utilisateur /////////
+//--------------------------------------------//
+function getPseudoByID($id){
+    $linkpdo=ConnexionBDD();
+    $req = $linkpdo->prepare("SELECT pseudo FROM users where id_user=:id_user");
+    $req->execute(array(":id_user"=>$id));
+    if($req->rowCount() > 0){
+        $data = $req->fetchAll(PDO::FETCH_ASSOC);
+        return $data[0]["pseudo"];
+    } else {
+        return "ERROR";
+    }
+}
 //-----------------------------------------------//
 /// Retourner l'id du user par son Pseudo /////////
 //-----------------------------------------------//

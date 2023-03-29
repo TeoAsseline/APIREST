@@ -29,7 +29,7 @@
 				} else {
 					$jwt = "Mauvais login ou mdp";
 					/// Envoi de la réponse au Client
-					deliver_response(400, "Problème Connexion", $jwt);
+					deliver_response(200, "Problème Connexion", $jwt);
 				}
 			} else {
 				$jwt = "Il vous manque le login ou mot de passe";
