@@ -1,9 +1,9 @@
 {
 	"info": {
-		"_postman_id": "1270f1ca-a4d5-4202-9f08-af400d231039",
+		"_postman_id": "f0e38d92-e9c3-4cbd-9967-32d6cb84f714",
 		"name": "WeidnerAsseline",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "25745320"
+		"_exporter_id": "25745395"
 	},
 	"item": [
 		{
@@ -180,7 +180,7 @@
 									}
 								},
 								"url": {
-									"raw": "http://localhost/R401/APIREST/API/SERVERAPI.php?pseudo=Nicolas",
+									"raw": "http://localhost/R401/APIREST/API/SERVERAPI.php/Nicolas",
 									"protocol": "http",
 									"host": [
 										"localhost"
@@ -189,13 +189,8 @@
 										"R401",
 										"APIREST",
 										"API",
-										"SERVERAPI.php"
-									],
-									"query": [
-										{
-											"key": "pseudo",
-											"value": "Nicolas"
-										}
+										"SERVERAPI.php",
+										"Nicolas"
 									]
 								}
 							},
@@ -282,7 +277,7 @@
 									}
 								},
 								"url": {
-									"raw": "http://localhost/R401/APIREST/API/SERVERAPI.php?id=1",
+									"raw": "http://localhost/R401/APIREST/API/SERVERAPI.php/1",
 									"protocol": "http",
 									"host": [
 										"localhost"
@@ -291,13 +286,8 @@
 										"R401",
 										"APIREST",
 										"API",
-										"SERVERAPI.php"
-									],
-									"query": [
-										{
-											"key": "id",
-											"value": "1"
-										}
+										"SERVERAPI.php",
+										"1"
 									]
 								}
 							},
@@ -327,7 +317,7 @@
 									}
 								},
 								"url": {
-									"raw": "http://localhost/R401/APIREST/API/SERVERAPI.php?id=1",
+									"raw": "http://localhost/R401/APIREST/API/SERVERAPI.php/1",
 									"protocol": "http",
 									"host": [
 										"localhost"
@@ -336,13 +326,8 @@
 										"R401",
 										"APIREST",
 										"API",
-										"SERVERAPI.php"
-									],
-									"query": [
-										{
-											"key": "id",
-											"value": "1"
-										}
+										"SERVERAPI.php",
+										"1"
 									]
 								}
 							},
@@ -354,7 +339,7 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "http://localhost/R401/APIREST/API/SERVERAPI.php?id=1",
+									"raw": "http://localhost/R401/APIREST/API/SERVERAPI.php/1",
 									"protocol": "http",
 									"host": [
 										"localhost"
@@ -363,13 +348,8 @@
 										"R401",
 										"APIREST",
 										"API",
-										"SERVERAPI.php"
-									],
-									"query": [
-										{
-											"key": "id",
-											"value": "1"
-										}
+										"SERVERAPI.php",
+										"1"
 									]
 								}
 							},
@@ -414,7 +394,7 @@
 									}
 								],
 								"url": {
-									"raw": "http://localhost/R401/APIREST/API/SERVERAPI.php?id=1",
+									"raw": "http://localhost/R401/APIREST/API/SERVERAPI.php/1",
 									"protocol": "http",
 									"host": [
 										"localhost"
@@ -423,13 +403,8 @@
 										"R401",
 										"APIREST",
 										"API",
-										"SERVERAPI.php"
-									],
-									"query": [
-										{
-											"key": "id",
-											"value": "1"
-										}
+										"SERVERAPI.php",
+										"1"
 									]
 								}
 							},
@@ -447,7 +422,7 @@
 									}
 								],
 								"url": {
-									"raw": "http://localhost/R401/APIREST/API/SERVERAPI.php?id=1",
+									"raw": "http://localhost/R401/APIREST/API/SERVERAPI.php/1",
 									"protocol": "http",
 									"host": [
 										"localhost"
@@ -456,13 +431,8 @@
 										"R401",
 										"APIREST",
 										"API",
-										"SERVERAPI.php"
-									],
-									"query": [
-										{
-											"key": "id",
-											"value": "1"
-										}
+										"SERVERAPI.php",
+										"1"
 									]
 								}
 							},
@@ -497,7 +467,7 @@
 									}
 								},
 								"url": {
-									"raw": "http://localhost/R401/APIREST/API/SERVERAPI.php?pseudo=Fantin",
+									"raw": "http://localhost/R401/APIREST/API/SERVERAPI.php/Fantin",
 									"protocol": "http",
 									"host": [
 										"localhost"
@@ -506,13 +476,8 @@
 										"R401",
 										"APIREST",
 										"API",
-										"SERVERAPI.php"
-									],
-									"query": [
-										{
-											"key": "pseudo",
-											"value": "Fantin"
-										}
+										"SERVERAPI.php",
+										"Fantin"
 									]
 								}
 							},
@@ -671,7 +636,7 @@
 									}
 								},
 								"url": {
-									"raw": "http://localhost/R401/APIREST/API/SERVERAPI.php?id=1",
+									"raw": "http://localhost/R401/APIREST/API/SERVERAPI.php/1",
 									"protocol": "http",
 									"host": [
 										"localhost"
@@ -680,13 +645,8 @@
 										"R401",
 										"APIREST",
 										"API",
-										"SERVERAPI.php"
-									],
-									"query": [
-										{
-											"key": "id",
-											"value": "1"
-										}
+										"SERVERAPI.php",
+										"1"
 									]
 								}
 							},

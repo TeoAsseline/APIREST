@@ -13,7 +13,7 @@ require_once("./Fonction/jwt_utils.php");
 // echo insertUser("Elena","jadoreleschevaux","2");
 // echo insertUser("Fantin","jadorelesjeux","2");
 // echo "</br>-----------------------</br>";
-if($_SESSION['token']!=null){
+if(isset($_SESSION['token'])){
     $token=$_SESSION['token'];
 } else {
     $token="";
@@ -65,7 +65,7 @@ if (isset($_POST['connexion'])) {
     </form>
     <form style='padding:0.8em;margin:0.4em;border:solid 2px;'>
     <label>ID</label>
-    <input type='number' id='n' name='n'/>
+    <input type='number' id='id' name='id'/>
     <input type='submit' value='Rechercher'/>
     </form>
     <table style='border:solid 2px;width:99%;padding:0.8em;margin:0.4em;'>
@@ -86,8 +86,8 @@ if (isset($_POST['connexion'])) {
     </thead>
     <tbody style='padding:0.8em;margin:0.4em;text-align:center;'>
     <?php
-        if(isset($_GET['n']) && $_GET['n']!=null){
-            $id=$_GET['n'];
+        if(isset($_GET['id'])){
+            $id=$_GET['id'];
         } else {
             $id=null;
         }

@@ -31,7 +31,7 @@ function GETArticleTOKEN($token,$id=null){
         stream_context_create(array('http' => array('method' => 'GET','header'=>'Authorization: Bearer '.$token))) 
         );
     } else {
-        $result = file_get_contents($lien."?id=".$id,false,
+        $result = file_get_contents($lien."/".$id,false,
         stream_context_create(array('http' => array('method' => 'GET','header'=>'Authorization: Bearer '.$token))) 
         );
     }
@@ -48,7 +48,7 @@ function GETArticle($id=null){
         stream_context_create(array('http' => array('method' => 'GET'))) 
         );
     } else {
-        $result = file_get_contents($lien."?id=".$id,false,
+        $result = file_get_contents($lien."/".$id,false,
         stream_context_create(array('http' => array('method' => 'GET'))) 
         );
     }
@@ -59,7 +59,7 @@ function GETArticle($id=null){
 //////////////////        GET My Article       //////////////////
 //-------------------------------------------------------------//
 function GETMyArticle($pseudo,$token){
-    $lien='http://localhost/R401/APIREST/API/SERVERAPI.php?pseudo='.$pseudo;
+    $lien='http://localhost/R401/APIREST/API/SERVERAPI.php/'.$pseudo;
     $result = file_get_contents($lien,false,
     stream_context_create(array('http' => array('method' => 'GET','header' => array('Authorization: Bearer '.$token)))) 
     );
