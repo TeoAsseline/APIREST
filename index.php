@@ -5,8 +5,8 @@
 session_start();
 require_once("./DAO/functionUser.php");
 require_once("./Fonction/functionCLIENT.php");
-require_once("./Fonction/jwt_utils.php");
 // echo "</br>-----------------------<br/>";
+// DONNEE DE CONNEXION
 // echo insertUser("Teo","\$iutinfo","1");
 // echo insertUser("Arthur","\$iutinfo","1");
 // echo insertUser("Nicolas","jadoreleschats","2");
@@ -16,15 +16,33 @@ require_once("./Fonction/jwt_utils.php");
 if(isset($_SESSION['token'])){
     $token=$_SESSION['token'];
 } else {
-    $token="";
+    $token="Aucun Token";
 }
 if (isset($_POST['connexion'])) {
     if (isset($_POST['login']) && isset($_POST['mdp'])) {
         $user = htmlentities($_POST['login']);
         $mdp= htmlentities($_POST['mdp']);
         CONNEXION($user,$mdp);
+        header("Refresh:1");
     }
 } 
+if (isset($_POST['creer'])) {
+    if (isset($_POST['titre']) && isset($_POST['contenu'])) {
+        $titre = htmlentities($_POST['titre']);
+        $contenu= htmlentities($_POST['contenu']);
+        INSERTArticle($token,$contenu,$titre);
+        header("Refresh:1");
+    }
+} 
+if (isset($_POST['ajoutlike'])) {
+    if (isset($_POST['like']) && isset($_POST['idart'])) {
+        $like = htmlentities($_POST['like']);
+        $idart= htmlentities($_POST['idart']);
+        INSERTLikeDislike($token,$idart,$like);
+        header("Refresh:1");
+    }
+} 
+// TEST FONCTION CLIENT OK
 // print_r(GETArticleTOKEN($token['data']));
 // echo "</br>-----------------------</br>";
 // print_r(GETArticle());
@@ -55,7 +73,8 @@ if (isset($_POST['connexion'])) {
 </head>
 <body>
 <main>
-    <form style='padding:0.8em;margin:0.4em;border:solid 2px;' method="post">
+    <!--Connexion TOKEN--> 
+    <form action="./index.php" style='padding:0.8em;margin:0.4em;border:solid 2px;' method="post">
         <label>Login</label>
         <input type='text' id='login' name='login' required/>
         <label>Mdp</label>
@@ -63,11 +82,15 @@ if (isset($_POST['connexion'])) {
         <input type='submit' name="connexion" value='Connexion'/>
         <span><?php echo "Token : ".$token;?></span>
     </form>
-    <form style='padding:0.8em;margin:0.4em;border:solid 2px;'>
+    <!--Recherche ID--> 
+    <form action="./index.php" style='padding:0.8em;margin:0.4em;border:solid 2px;'>
     <label>ID</label>
-    <input type='number' id='id' name='id'/>
+    <input type='number' id='id' name='id'required/>
     <input type='submit' value='Rechercher'/>
     </form>
+    <!--All Article--> 
+    <a href="./index.php">Tous les Articles</a>
+    <!--Tableau Article--> 
     <table style='border:solid 2px;width:99%;padding:0.8em;margin:0.4em;'>
     <thead style='padding:0.8em;margin:0.4em;'>
         <tr>
@@ -131,12 +154,32 @@ if (isset($_POST['connexion'])) {
                 <td></td>
                 <td></td>
                 <?php endif; ?>
-                <td><a href=''>Modifier</a></td>
-                <td><a href=''>Supprimer</a></td>
+                <td><a href='./page/modifarticle.php?id=<?php echo $article['id_art'];?>&titre=<?php echo $article['nom_publication'];?>&contenu=<?php echo $article['contenu'];?>'>Modifier</a></td>
+                <td><a href='./page/supprimerarticle.php?id=<?php echo $article['id_art'];?>'>Supprimer</a></td>
             </tr>
         <?php endforeach;?>
     </tbody>
     </table>
+    <!--Ajout article--> 
+    <form action="./index.php" style='padding:0.8em;margin:0.4em;border:solid 2px;' method="post">
+        <label>Titre</label>
+        <input type='text' id='titre' name='titre' required/>
+        <label>Contenu</label>
+        <input type='text' id='contenu' name='contenu' required/>
+        <input type='submit' name="creer" value='Ajouter'/>
+    </form>
+    <!--Ajout like--> 
+    <form action="./index.php" style='padding:0.8em;margin:0.4em;border:solid 2px;' method="post">
+        <label>Id_ART</label>
+        <input type='text' id='idart' name='idart' required/>
+        <label>Like or Dislike</label>
+        <select name="like" id="like">
+            <option value="">--Choisissez de Like ou Non--</option>
+            <option value="0">Dislike</option>
+            <option value="1">Like</option>
+        </select>
+        <input type='submit' name="ajoutlike" value='AjouterLike'/>
+    </form>
 </main>
 </body>
 </html>
