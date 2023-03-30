@@ -7,3 +7,6 @@ Url d'accès API Authentification : 'https://apirestaw.faister.fr/API/SERVERAUTH
 Connexion :
 Admin - Téo / Voir rapport rendu
 Publisher - Nicolas / Voir rapport rendu
+
+L'interface utilisateur est fonctionnelle seulement pour quelques fonctionnalités. La modification et la suppression d'article ne sont pas implémenté dans l'interface utilisateur . les fonctions utilisées par contre sont utilisable directement dans le code.
+Le client postman est fonctionnel pour toutes les fonctionnalités.
